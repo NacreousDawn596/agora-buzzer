@@ -10,7 +10,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../App';
 
 const { width, height } = Dimensions.get('window');
-const WS_URL = process.env.EXPO_PUBLIC_WS_URL ?? 'ws://10.97.156.53:8000';
+const WS_URL = process.env.EXPO_PUBLIC_WS_URL ?? 'ws://https://agora-buzzer.fly.dev/';
 
 type BuzzerState = 'disabled' | 'enabled' | 'locked';
 
