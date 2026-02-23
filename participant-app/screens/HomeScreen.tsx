@@ -80,6 +80,7 @@ export default function HomeScreen({ navigation }: Props) {
                 sessionId: data.session_id,
                 wsToken: data.ws_token,
                 accessToken: data.access_token,
+                slot: data.team_a?.id === data.team_id ? 'team_a' : 'team_b',
                 opponent: data.opponent ?? null,
             });
         } catch {

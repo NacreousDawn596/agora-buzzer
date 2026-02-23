@@ -9,13 +9,13 @@ import BuzzerScreen from './screens/BuzzerScreen';
 export type RootStackParamList = {
   Home: undefined;
   Buzzer: {
-    teamId:      string;
-    teamName:    string;
-    sessionId:   string;
-    wsToken:     string;
+    teamId: string;
+    teamName: string;
+    sessionId: string;
+    wsToken: string;
     accessToken: string;
-    slot:        'team_a' | 'team_b';   // ← which side this player owns, set at join time
-    opponent:    { id: string; name: string; score: number } | null;
+    slot: 'team_a' | 'team_b';
+    opponent: { id: string; name: string; score: number } | null;
   };
 };
 
