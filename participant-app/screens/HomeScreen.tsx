@@ -106,7 +106,7 @@ export default function HomeScreen({ navigation }: Props) {
                     <Animated.View style={[styles.content, { opacity: fadeAnim, transform: [{ translateY: slideAnim }] }]}>
 
                         {/* Brand */}
-                        <Text style={styles.brand}>AGORA</Text>
+                        <Text style={styles.brand}>AGORA A&M</Text>
                         <View style={styles.brandDivider} />
 
                         {/* Duel indicator with animated swords */}
@@ -131,7 +131,7 @@ export default function HomeScreen({ navigation }: Props) {
                             <View style={styles.inputWrapper}>
                                 <TextInput
                                     style={styles.input}
-                                    placeholder="e.g. gadzit"
+                                    placeholder="e.g. culturel"
                                     placeholderTextColor="#C8B090"
                                     value={teamId}
                                     onChangeText={setTeamId}
@@ -168,7 +168,7 @@ export default function HomeScreen({ navigation }: Props) {
                             <View style={styles.ornGem} />
                             <View style={styles.ornLine} />
                         </View>
-                        <Text style={styles.footer}>AGORA SYSTEMS · 1V1 EDITION</Text>
+                        <Text style={styles.footer}>AGORA A&M SYSTEMS · 1V1 EDITION</Text>
 
                     </Animated.View>
                 </KeyboardAvoidingView>

@@ -430,6 +430,11 @@ function setWS(s) {
   document.getElementById('ws-label').textContent = s.toUpperCase();
 }
 
+// Heartbeat to prevent backend sleep
+setInterval(() => {
+  if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify({ type: 'ping' }));
+}, 10000);
+
 // ── Messages ────────────────────────────────────────────────────────────────
 function handle(msg) {
   switch(msg.type) {

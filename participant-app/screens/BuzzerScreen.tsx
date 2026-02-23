@@ -55,9 +55,6 @@ export default function BuzzerScreen({ route, navigation }: Props) {
 
     ws.onopen = () => {
       setWsStatus('connected');
-      pingTimer.current = setInterval(() => {
-        ws.readyState === WebSocket.OPEN && ws.send(JSON.stringify({ type: 'ping' }));
-      }, 25000);
     };
 
     ws.onmessage = e => {
@@ -77,10 +74,26 @@ export default function BuzzerScreen({ route, navigation }: Props) {
     connect();
     return () => {
       clearTimeout(reconnectTimer.current!);
-      clearInterval(pingTimer.current!);
       wsRef.current?.close();
     };
   }, [connect]);
+
+  // ── Heartbeat ────────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (wsStatus !== 'connected') return;
+
+    console.log('💓 Heartbeat started (10s)');
+    const interval = setInterval(() => {
+      if (wsRef.current?.readyState === WebSocket.OPEN) {
+        wsRef.current.send(JSON.stringify({ type: 'ping' }));
+      }
+    }, 10000);
+
+    return () => {
+      console.log('💔 Heartbeat stopped');
+      clearInterval(interval);
+    };
+  }, [wsStatus]);
 
   // ── Message handler ──────────────────────────────────────────────────────
   const handleMsg = (msg: any) => {
@@ -184,7 +197,7 @@ export default function BuzzerScreen({ route, navigation }: Props) {
 
   const buzzerLabel = buzzerState === 'disabled' ? 'STAND BY'
     : buzzerState === 'enabled' ? 'BUZZ!'
-      : isWinner ? 'YOU WON!' : 'TOO SLOW';
+      : isWinner ? 'UR TURN!' : 'TOO SLOW';
 
   const enabledScale = enabledPulse.interpolate({ inputRange: [0, 1], outputRange: [1, 1.03] });
   const wsColor = wsStatus === 'connected' ? '#2A6B2E' : wsStatus === 'connecting' ? '#C4621A' : '#9B2D22';
