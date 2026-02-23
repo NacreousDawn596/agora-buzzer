@@ -127,7 +127,9 @@ async def admin_login(req: LoginRequest):
 @app.post("/join", tags=["Participant"])
 async def team_join(req: TeamJoinRequest):
     team_id = req.team_id.strip().lower()
+    logger.info(f"📥 JOIN ATTEMPT: '{team_id}' | Registered: {list(teams_db.keys())}")
     if team_id not in teams_db:
+        logger.warning(f"❌ JOIN REJECTED: '{team_id}' not found")
         raise HTTPException(
             status_code=403,
             detail=f"'{team_id}' is not registered for this duel.",
@@ -256,7 +258,17 @@ async def set_teams(
         session.buzzer_winner   = None
         session.question_number = 0
     await broadcast_state("main")
+    logger.info(f"🔄 TEAMS RECONFIGURED: '{team_a_id}' vs '{team_b_id}'")
     return {"status": "teams_set", **get_duel_payload()}
+
+
+@app.get("/admin/debug-state", tags=["Admin"])
+async def debug_state(admin=Depends(require_admin)):
+    return {
+        "teams_db": teams_db,
+        "sessions": sessions,
+        "manager_counts": {s: manager.count(s) for s in sessions},
+    }
 
 
 @app.post("/admin/panic", tags=["Admin"])

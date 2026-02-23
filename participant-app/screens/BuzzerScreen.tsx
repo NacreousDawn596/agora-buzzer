@@ -27,25 +27,25 @@ export default function BuzzerScreen({ route, navigation }: Props) {
   const { teamId, teamName, sessionId, wsToken, slot, opponent: initOpponent } = route.params;
 
   // State
-  const [buzzerState,  setBuzzerState]  = useState<BuzzerState>('disabled');
-  const [myData,       setMyData]       = useState<TeamData>({ id: teamId, name: teamName, score: 0, is_connected: true });
-  const [oppData,      setOppData]      = useState<TeamData | null>(initOpponent ? { ...initOpponent, is_connected: false } : null);
-  const [winner,       setWinner]       = useState<{ id: string; name: string } | null>(null);
-  const [questionNum,  setQuestionNum]  = useState(0);
-  const [wsStatus,     setWsStatus]     = useState<'connecting' | 'connected' | 'disconnected'>('connecting');
-  const [iDidBuzz,     setIDidBuzz]     = useState(false);
+  const [buzzerState, setBuzzerState] = useState<BuzzerState>('disabled');
+  const [myData, setMyData] = useState<TeamData>({ id: teamId, name: teamName, score: 0, is_connected: true });
+  const [oppData, setOppData] = useState<TeamData | null>(initOpponent ? { ...initOpponent, is_connected: false } : null);
+  const [winner, setWinner] = useState<{ id: string; name: string } | null>(null);
+  const [questionNum, setQuestionNum] = useState(0);
+  const [wsStatus, setWsStatus] = useState<'connecting' | 'connected' | 'disconnected'>('connecting');
+  const [iDidBuzz, setIDidBuzz] = useState(false);
 
-  const wsRef          = useRef<WebSocket | null>(null);
-  const pingTimer      = useRef<ReturnType<typeof setInterval> | null>(null);
+  const wsRef = useRef<WebSocket | null>(null);
+  const pingTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   const reconnectTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Animations
-  const buzzerScale   = useRef(new Animated.Value(1)).current;
+  const buzzerScale = useRef(new Animated.Value(1)).current;
   const buzzerOpacity = useRef(new Animated.Value(1)).current;
-  const winnerAnim    = useRef(new Animated.Value(0)).current;
-  const enabledPulse  = useRef(new Animated.Value(0)).current;
-  const scoreAnim     = useRef(new Animated.Value(1)).current;
-  const oppScoreAnim  = useRef(new Animated.Value(1)).current;
+  const winnerAnim = useRef(new Animated.Value(0)).current;
+  const enabledPulse = useRef(new Animated.Value(0)).current;
+  const scoreAnim = useRef(new Animated.Value(1)).current;
+  const oppScoreAnim = useRef(new Animated.Value(1)).current;
 
   // ── WS ──────────────────────────────────────────────────────────────────
   const connect = useCallback(() => {
@@ -87,8 +87,8 @@ export default function BuzzerScreen({ route, navigation }: Props) {
     // Always sync team data by slot, never by ID.
     // This means admin name/ID changes propagate instantly — no ID match needed.
     const oppSlot = slot === 'team_a' ? 'team_b' : 'team_a';
-    if (msg[slot])    setMyData (prev => ({ ...prev,           ...msg[slot]    }));
-    if (msg[oppSlot]) setOppData(prev => ({ ...(prev ?? {}),   ...msg[oppSlot] } as TeamData));
+    if (msg[slot]) setMyData(prev => ({ ...prev, ...msg[slot] }));
+    if (msg[oppSlot]) setOppData(prev => ({ ...(prev ?? {}), ...msg[oppSlot] } as TeamData));
 
     switch (msg.type) {
       case 'connected':
@@ -96,14 +96,14 @@ export default function BuzzerScreen({ route, navigation }: Props) {
         setBuzzerState(msg.buzzer_state);
         setQuestionNum(msg.question_number ?? 0);
         if (msg.buzzer_winner) setWinner({ id: msg.buzzer_winner, name: msg.buzzer_winner_name ?? msg.buzzer_winner });
-        else                   setWinner(null);
+        else setWinner(null);
         break;
 
       case 'buzzer_locked':
         setBuzzerState('locked');
         setWinner({ id: msg.winner_id, name: msg.winner_name });
         if (msg.winner_id === teamId) triggerWinAnim();
-        else                          triggerLossAnim();
+        else triggerLossAnim();
         break;
 
       case 'opponent_connected':
@@ -142,15 +142,15 @@ export default function BuzzerScreen({ route, navigation }: Props) {
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     Animated.sequence([
       Animated.spring(buzzerScale, { toValue: 1.12, useNativeDriver: true }),
-      Animated.spring(buzzerScale, { toValue: 1,    useNativeDriver: true }),
+      Animated.spring(buzzerScale, { toValue: 1, useNativeDriver: true }),
     ]).start();
   };
 
   const triggerLossAnim = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
     Animated.sequence([
-      Animated.timing(buzzerOpacity, { toValue: 0.35, duration: 80,  useNativeDriver: true }),
-      Animated.timing(buzzerOpacity, { toValue: 1,    duration: 250, useNativeDriver: true }),
+      Animated.timing(buzzerOpacity, { toValue: 0.35, duration: 80, useNativeDriver: true }),
+      Animated.timing(buzzerOpacity, { toValue: 1, duration: 250, useNativeDriver: true }),
     ]).start();
   };
 
@@ -161,30 +161,30 @@ export default function BuzzerScreen({ route, navigation }: Props) {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
     Animated.sequence([
       Animated.spring(buzzerScale, { toValue: 0.91, useNativeDriver: true }),
-      Animated.spring(buzzerScale, { toValue: 1,    useNativeDriver: true }),
+      Animated.spring(buzzerScale, { toValue: 1, useNativeDriver: true }),
     ]).start();
     wsRef.current?.send(JSON.stringify({ type: 'buzz', team_id: teamId }));
   };
 
   // ── Derived ──────────────────────────────────────────────────────────────
-  const isWinner  = winner?.id === teamId;
-  const isLocked  = buzzerState === 'locked';
-  const iAmLoser  = isLocked && !isWinner;
+  const isWinner = winner?.id === teamId;
+  const isLocked = buzzerState === 'locked';
+  const iAmLoser = isLocked && !isWinner;
 
   const buzzerBg: [string, string] = buzzerState === 'enabled'
     ? ['#D0EDD1', '#BDE5BF']
-    : isWinner  ? ['#F0E8C8', '#E8DCA8']
-    : iAmLoser  ? ['#F0E8E8', '#E8D8D8']
-    : ['#EDE0C8', '#E3D4B8'];
+    : isWinner ? ['#F0E8C8', '#E8DCA8']
+      : iAmLoser ? ['#F0E8E8', '#E8D8D8']
+        : ['#EDE0C8', '#E3D4B8'];
 
   const buzzerBorder = buzzerState === 'enabled' ? '#2A6B2E'
     : isWinner ? '#9A7410'
-    : iAmLoser ? '#9B2D22'
-    : '#B09070';
+      : iAmLoser ? '#9B2D22'
+        : '#B09070';
 
   const buzzerLabel = buzzerState === 'disabled' ? 'STAND BY'
-    : buzzerState === 'enabled'  ? 'BUZZ!'
-    : isWinner  ? 'YOU WON!' : 'TOO SLOW';
+    : buzzerState === 'enabled' ? 'BUZZ!'
+      : isWinner ? 'YOU WON!' : 'TOO SLOW';
 
   const enabledScale = enabledPulse.interpolate({ inputRange: [0, 1], outputRange: [1, 1.03] });
   const wsColor = wsStatus === 'connected' ? '#2A6B2E' : wsStatus === 'connecting' ? '#C4621A' : '#9B2D22';
@@ -233,7 +233,7 @@ export default function BuzzerScreen({ route, navigation }: Props) {
             <Animated.Text style={[
               styles.scoreBig, styles.scoreOpp,
               !isWinner && isLocked && styles.scoreWinner,
-              isWinner  && isLocked && styles.scoreLoser,
+              isWinner && isLocked && styles.scoreLoser,
             ]}>
               {oppData?.score ?? 0}
             </Animated.Text>
@@ -289,9 +289,9 @@ export default function BuzzerScreen({ route, navigation }: Props) {
           {/* State text */}
           <Text style={styles.stateText}>
             {buzzerState === 'disabled' && 'Waiting for question...'}
-            {buzzerState === 'enabled'  && 'Question is live — buzz in!'}
-            {isWinner                   && 'Answer the question!'}
-            {iAmLoser                   && `${winner?.name ?? 'Opponent'} buzzed first`}
+            {buzzerState === 'enabled' && 'Question is live — buzz in!'}
+            {isWinner && 'Answer the question!'}
+            {iAmLoser && `${winner?.name ?? 'Opponent'} buzzed first`}
           </Text>
         </View>
 
@@ -343,9 +343,9 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     justifyContent: 'center',
   },
-  scoreHalfLeft:  { alignItems: 'flex-start',  borderRightWidth: 0 },
+  scoreHalfLeft: { alignItems: 'flex-start', borderRightWidth: 0 },
   scoreHalfRight: { alignItems: 'flex-end' },
-  scoreTeamInfo:  { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 },
+  scoreTeamInfo: { flexDirection: 'row', alignItems: 'center', gap: 6, marginBottom: 4 },
   scoreTeamInfoRight: { flexDirection: 'row-reverse' },
   connDot: { width: 6, height: 6, borderRadius: 3 },
   scoreTeamName: {
@@ -358,10 +358,10 @@ const styles = StyleSheet.create({
     fontFamily: Platform.select({ ios: 'Georgia', android: 'serif' }),
     fontSize: 52, lineHeight: 56, color: '#7A5C3A',
   },
-  scoreMe:     { color: '#2C1A0E' },
-  scoreOpp:    { color: '#7A5C3A' },
+  scoreMe: { color: '#2C1A0E' },
+  scoreOpp: { color: '#7A5C3A' },
   scoreWinner: { color: '#9A7410' },
-  scoreLoser:  { color: '#C8B090' },
+  scoreLoser: { color: '#C8B090' },
 
   vsDivider: {
     width: 56, alignItems: 'center', justifyContent: 'center',
@@ -372,8 +372,8 @@ const styles = StyleSheet.create({
     fontSize: 14, color: '#B09070', fontStyle: 'italic', letterSpacing: 2,
   },
   vsEnabled: { color: '#2A6B2E' },
-  vsWon:     { color: '#9A7410' },
-  vsLost:    { color: '#9B2D22' },
+  vsWon: { color: '#9A7410' },
+  vsLost: { color: '#9B2D22' },
 
   scoreDivider: { height: 1, backgroundColor: '#D4C4A8', marginHorizontal: 0 },
 
@@ -410,8 +410,8 @@ const styles = StyleSheet.create({
     fontSize: 20, color: '#A08060', letterSpacing: 5, textTransform: 'uppercase',
   },
   buzzerLabelEnabled: { color: '#1A5E1E', fontSize: 32, letterSpacing: 6 },
-  buzzerLabelWin:     { color: '#8A6408', fontSize: 22 },
-  buzzerLabelLoss:    { color: '#8C2A20', fontSize: 18 },
+  buzzerLabelWin: { color: '#8A6408', fontSize: 22 },
+  buzzerLabelLoss: { color: '#8C2A20', fontSize: 18 },
 
   buzzerSub: {
     fontFamily: Platform.select({ ios: 'Courier New', android: 'monospace' }),
