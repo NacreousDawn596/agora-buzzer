@@ -10,7 +10,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../App';
 
 const { width, height } = Dimensions.get('window');
-const API_URL = process.env.EXPO_PUBLIC_API_URL ?? 'http://10.97.156.53:8000';
+const API_URL = process.env.EXPO_PUBLIC_API_URL ?? 'https://agora-buzzer.fly.dev/';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
