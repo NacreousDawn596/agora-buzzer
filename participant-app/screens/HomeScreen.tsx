@@ -10,7 +10,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../App';
 
 const { width, height } = Dimensions.get('window');
-const API_URL = process.env.EXPO_PUBLIC_API_URL ?? 'http://localhost:8000';
+const API_URL = process.env.EXPO_PUBLIC_API_URL ?? 'https://agora-buzzer.fly.dev/';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -64,7 +64,7 @@ export default function HomeScreen({ navigation }: Props) {
     }
     setLoading(true);
     try {
-      const res  = await fetch(`${API_URL}/join`, {
+      const res  = await fetch(`${API_URL}join`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ team_id: id }),

@@ -10,7 +10,7 @@ import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../App';
 
 const { width, height } = Dimensions.get('window');
-const WS_URL = process.env.EXPO_PUBLIC_WS_URL ?? 'ws://localhost:8000';
+const WS_URL = process.env.EXPO_PUBLIC_WS_URL ?? 'wss://agora-buzzer.fly.dev/';
 
 type BuzzerState = 'disabled' | 'enabled' | 'locked';
 
@@ -49,7 +49,7 @@ export default function BuzzerScreen({ route, navigation }: Props) {
 
   // ── WS ──────────────────────────────────────────────────────────────────
   const connect = useCallback(() => {
-    const ws = new WebSocket(`${WS_URL}/ws/session/${sessionId}?token=${wsToken}`);
+    const ws = new WebSocket(`${WS_URL}ws/session/${sessionId}?token=${wsToken}`);
     wsRef.current = ws;
     setWsStatus('connecting');
 
