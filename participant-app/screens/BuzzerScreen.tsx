@@ -49,7 +49,7 @@ export default function BuzzerScreen({ route, navigation }: Props) {
 
   // ── WS ──────────────────────────────────────────────────────────────────
   const connect = useCallback(() => {
-    const ws = new WebSocket(`${WS_URL}/ws/session/${sessionId}?token=${wsToken}`);
+    const ws = new WebSocket(`${WS_URL}ws/session/${sessionId}?token=${wsToken}`);
     wsRef.current = ws;
     setWsStatus('connecting');
 

@@ -64,7 +64,7 @@ export default function HomeScreen({ navigation }: Props) {
         }
         setLoading(true);
         try {
-            const res = await fetch(`${API_URL}/join`, {
+            const res = await fetch(`${API_URL}join`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ team_id: id }),
