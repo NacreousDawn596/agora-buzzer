@@ -14,6 +14,7 @@ export type RootStackParamList = {
     sessionId:   string;
     wsToken:     string;
     accessToken: string;
+    slot:        'team_a' | 'team_b';   // ← which side this player owns, set at join time
     opponent:    { id: string; name: string; score: number } | null;
   };
 };

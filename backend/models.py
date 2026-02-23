@@ -36,9 +36,9 @@ class AdminScoreUpdate(BaseModel):
 
 class TokenResponse(BaseModel):
     access_token: str
+    ws_token: str          # ← WS uses a separate secret + type:"ws" claim
     token_type: str
     role: str
-    ws_token: Optional[str] = None
 
 
 class TeamInfo(BaseModel):
