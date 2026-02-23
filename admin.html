@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agora A&M — Admin · 1v1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&family=IM+Fell+English:ital@0;1&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #F9F2E7;
+      --bg2:        #F2E8D5;
+      --bg3:        #EDE0C8;
+      --parchment:  #2C1A0E;
+      --bronze:     #7A5C3A;
+      --border:     #D4C4A8;
+      --text-dim:   #B09070;
+      --text-mid:   #8C6840;
+      --accent-red: #9B2D22;
+      --accent-fire:#C4621A;
+      --accent-gold:#9A7410;
+      --green:      #2A6B2E;
+    }
+
+    body {
+      background: var(--bg); color: var(--parchment);
+      font-family: 'IM Fell English', serif; min-height: 100vh;
+    }
+
+    /* ── LOGIN ── */
+    #login-screen {
+      min-height: 100vh; display: flex; align-items: center;
+      justify-content: center; flex-direction: column; gap: 28px;
+    }
+    .login-title {
+      font-family: 'Cinzel Decorative', serif; font-size: 38px;
+      letter-spacing: 8px; color: var(--parchment);
+      text-shadow: 0 2px 12px rgba(44,26,14,0.12);
+    }
+    .login-sub {
+      font-family: 'Share Tech Mono', monospace; font-size: 10px;
+      color: var(--text-dim); letter-spacing: 5px; text-transform: uppercase;
+    }
+    .login-box {
+      width: 380px; border: 1px solid var(--border);
+      padding: 40px 36px; background: var(--bg2); position: relative;
+      box-shadow: 0 4px 24px rgba(44,26,14,0.06);
+    }
+    .login-box::before { content:''; position:absolute; top:-1px; left:-1px;
+      width:14px; height:14px; border:2px solid var(--accent-gold); border-right:none; border-bottom:none; }
+    .login-box::after  { content:''; position:absolute; bottom:-1px; right:-1px;
+      width:14px; height:14px; border:2px solid var(--accent-gold); border-left:none; border-top:none; }
+
+    .ornament { display:flex; align-items:center; gap:12px; }
+    .orn-line { flex:1; height:1px; background:var(--border); }
+    .orn-gem  { width:6px; height:6px; background:var(--bronze); transform:rotate(45deg); }
+
+    label {
+      display:block; font-family:'Share Tech Mono',monospace;
+      font-size:10px; color:var(--text-mid); letter-spacing:4px;
+      text-transform:uppercase; margin-bottom:8px;
+    }
+    input[type=text], input[type=password] {
+      width:100%; background:rgba(255,255,255,0.6);
+      border:1px solid var(--border); border-bottom-color:var(--bronze);
+      color:var(--parchment); font-family:'Share Tech Mono',monospace;
+      font-size:15px; padding:11px 14px; letter-spacing:2px;
+      outline:none; transition:border-color .2s; margin-bottom:16px;
+    }
+    input:focus { border-color:var(--bronze); border-bottom-color:var(--parchment); }
+
+    .btn {
+      font-family:'Cinzel',serif; font-size:11px; letter-spacing:4px;
+      text-transform:uppercase; padding:13px 28px; cursor:pointer;
+      transition:all .2s; position:relative;
+    }
+    .btn-primary {
+      background:transparent; color:var(--parchment);
+      border:1px solid var(--parchment); width:100%;
+    }
+    .btn-primary:hover { background:rgba(44,26,14,0.06); }
+
+    .btn-enable  { flex:1; border:1px solid var(--green);      color:var(--green);      background:rgba(42,107,46,0.08); }
+    .btn-disable { flex:1; border:1px solid var(--text-mid);   color:var(--text-mid);   background:rgba(140,104,64,0.06); }
+    .btn-reset   { flex:1; border:1px solid var(--accent-red); color:var(--accent-red); background:rgba(155,45,34,0.07); }
+    .btn-panic   { width:100%; border:1px solid var(--accent-red); color:var(--accent-red); background:rgba(155,45,34,0.08); margin-top:6px; }
+    .btn-score   { border:1px solid; padding:7px 14px; font-size:13px; cursor:pointer; font-family:'Share Tech Mono',monospace; transition:all .15s; }
+    .btn-plus    { border-color:var(--green); color:var(--green); background:rgba(42,107,46,0.07); }
+    .btn-minus   { border-color:var(--accent-red); color:var(--accent-red); background:rgba(155,45,34,0.07); }
+    .btn-score-lg { padding:10px 22px; font-size:16px; }
+    .btn:hover   { filter:brightness(0.88); }
+    .btn:disabled { opacity:.4; cursor:not-allowed; }
+
+    .error-msg {
+      color:var(--accent-red); font-family:'Share Tech Mono',monospace;
+      font-size:10px; letter-spacing:2px; text-align:center; margin-top:10px;
+    }
+
+    /* ── APP ── */
+    #app-screen { display:none; flex-direction:column; min-height:100vh; }
+
+    .topbar {
+      background:var(--bg2); border-bottom:1px solid var(--border);
+      padding:12px 32px; display:flex; align-items:center; gap:20px;
+    }
+    .topbar-brand { font-family:'Cinzel Decorative',serif; font-size:20px; letter-spacing:6px; color:var(--parchment); }
+    .topbar-tag   { font-family:'Share Tech Mono',monospace; font-size:9px; color:var(--accent-red); letter-spacing:4px; text-transform:uppercase; }
+    .ws-badge     { margin-left:auto; display:flex; align-items:center; gap:8px; font-family:'Share Tech Mono',monospace; font-size:10px; letter-spacing:2px; color:var(--text-dim); }
+    .ws-dot       { width:8px; height:8px; border-radius:50%; }
+    .ws-connected { background:var(--green); box-shadow:0 0 6px var(--green); }
+    .ws-disconnected { background:var(--accent-red); }
+    .ws-connecting { background:var(--accent-fire); animation:blink 1s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    /* ── Main body layout ── */
+    .app-body {
+      display:grid;
+      grid-template-columns: 1fr 300px;
+      grid-template-rows: auto 1fr;
+      gap:0;
+      flex:1; min-height:0;
+    }
+
+    /* ── Buzzer control ── */
+    .buzzer-panel {
+      grid-column: 1; grid-row: 1;
+      padding:28px 32px;
+      border-bottom:1px solid var(--border);
+      border-right:1px solid var(--border);
+    }
+    .panel-title {
+      font-family:'Cinzel',serif; font-size:10px; color:var(--text-mid);
+      letter-spacing:5px; text-transform:uppercase;
+      padding-bottom:14px; border-bottom:1px solid var(--border); margin-bottom:20px;
+    }
+
+    .buzzer-state-badge {
+      text-align:center; padding:18px; border:2px solid;
+      font-family:'Cinzel',serif; font-size:20px; letter-spacing:5px;
+      margin-bottom:20px; transition:all .4s;
+    }
+    .state-disabled { border-color:var(--border); color:var(--text-dim); background:rgba(212,195,168,0.3); }
+    .state-enabled  { border-color:var(--green); color:var(--green); background:rgba(42,107,46,0.08); box-shadow:0 0 16px rgba(42,107,46,0.12); }
+    .state-locked   { border-color:var(--accent-gold); color:var(--accent-gold); background:rgba(154,116,16,0.08); box-shadow:0 0 16px rgba(154,116,16,0.12); }
+
+    .ctrl-row { display:flex; gap:8px; margin-bottom:10px; }
+
+    /* Winner display */
+    .winner-card {
+      border:1px solid var(--accent-gold); padding:18px 20px;
+      background:rgba(154,116,16,0.06); text-align:center;
+      margin-bottom:20px; animation:fadeUp .35s ease;
+    }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    .winner-card-label { font-family:'Share Tech Mono',monospace; font-size:9px; color:var(--text-dim); letter-spacing:4px; }
+    .winner-card-name  { font-family:'Cinzel',serif; font-size:26px; color:var(--accent-gold); letter-spacing:3px; margin-top:6px; }
+    .winner-card-time  { font-family:'Share Tech Mono',monospace; font-size:10px; color:var(--text-dim); margin-top:4px; }
+
+    .q-number { font-family:'Share Tech Mono',monospace; font-size:11px; color:var(--text-dim); letter-spacing:4px; text-align:center; margin-bottom:14px; }
+
+    /* ── Teams panel ── */
+    .teams-panel {
+      grid-column: 1; grid-row: 2;
+      padding:28px 32px;
+      border-right:1px solid var(--border);
+    }
+
+    .duel-grid {
+      display:grid; grid-template-columns:1fr 60px 1fr; gap:0;
+      align-items:start;
+    }
+
+    .team-card {
+      padding:24px; border:1px solid var(--border);
+      background:var(--bg2); position:relative;
+      transition:border-color .3s;
+    }
+    .team-card.winner-card-state { border-color:var(--accent-gold); background:rgba(154,116,16,0.04); }
+
+    .team-card-header { display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+    .team-status-dot  { width:8px; height:8px; border-radius:50%; background:var(--border); flex-shrink:0; }
+    .team-status-dot.on  { background:var(--green); box-shadow:0 0 5px var(--green); }
+    .team-card-name   { font-family:'Cinzel',serif; font-size:18px; letter-spacing:2px; color:var(--parchment); }
+    .team-card-id     { font-family:'Share Tech Mono',monospace; font-size:9px; color:var(--text-dim); letter-spacing:3px; margin-top:2px; }
+
+    .team-score-display {
+      font-family:'Cinzel',serif; font-size:52px; color:var(--accent-fire);
+      line-height:1; margin-bottom:16px; transition:all .3s;
+    }
+    .team-score-display.bump { animation:scoreBump .4s cubic-bezier(.34,1.56,.64,1); }
+    @keyframes scoreBump { from{transform:scale(1.3);color:var(--accent-gold)} to{transform:scale(1)} }
+
+    .score-controls { display:flex; gap:8px; flex-wrap:wrap; }
+
+    .vs-divider {
+      display:flex; align-items:center; justify-content:center; padding:20px 0;
+    }
+    .vs-pill {
+      font-family:'IM Fell English',serif; font-style:italic;
+      font-size:20px; color:var(--text-dim); writing-mode:vertical-rl;
+      letter-spacing:4px;
+    }
+
+    /* ── set-teams form ── */
+    .set-teams-form { margin-top:24px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .form-group label { margin-bottom:6px; }
+    .form-group input { margin-bottom:0; }
+    .btn-set { border:1px solid var(--border); color:var(--text-mid); background:rgba(44,26,14,0.04);
+               font-size:9px; width:100%; margin-top:10px; padding:10px; letter-spacing:4px; }
+    .btn-set:hover { border-color:var(--bronze); color:var(--parchment); }
+
+    /* ── Log panel ── */
+    .log-panel {
+      grid-column: 2; grid-row: 1 / 3;
+      padding:24px 20px; overflow-y:auto; border-left:none;
+    }
+    #event-log { display:flex; flex-direction:column; gap:5px; }
+    .log-entry {
+      padding:6px 10px; background:var(--bg3);
+      border-left:2px solid var(--border);
+      font-family:'Share Tech Mono',monospace; font-size:10px; color:var(--text-mid);
+    }
+    .log-entry.buzz  { border-left-color:var(--accent-gold); color:var(--parchment); }
+    .log-entry.admin { border-left-color:var(--accent-red); }
+    .log-entry.join  { border-left-color:var(--green); }
+    .log-time { color:var(--text-dim); margin-right:6px; }
+
+    .section-sub {
+      font-family:'Share Tech Mono',monospace; font-size:9px;
+      color:var(--text-dim); letter-spacing:3px; text-transform:uppercase;
+      margin:20px 0 10px;
+    }
+
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:var(--bg); }
+    ::-webkit-scrollbar-thumb { background:var(--border); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ LOGIN ══════════════════ -->
+<div id="login-screen">
+  <div class="login-title">AGORA</div>
+  <div class="login-sub">Admin Command — 1 vs 1 Edition</div>
+
+  <div class="login-box">
+    <div class="ornament" style="margin-bottom:24px">
+      <div class="orn-line"></div><div class="orn-gem"></div><div class="orn-line"></div>
+    </div>
+    <label>Username</label>
+    <input type="text" id="username" value="admin" />
+    <label>Password</label>
+    <input type="password" id="password" placeholder="••••••••••" />
+    <button class="btn btn-primary" onclick="doLogin()">ENTER COMMAND CENTER</button>
+    <div id="login-error" class="error-msg" style="display:none"></div>
+    <div class="ornament" style="margin-top:24px">
+      <div class="orn-line"></div><div class="orn-gem"></div><div class="orn-line"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ APP ══════════════════ -->
+<div id="app-screen">
+
+  <div class="topbar">
+    <span class="topbar-brand">AGORA</span>
+    <span class="topbar-tag">⚔ ADMIN · 1V1</span>
+    <div class="ws-badge">
+      <div class="ws-dot ws-connecting" id="ws-dot"></div>
+      <span id="ws-label">CONNECTING</span>
+    </div>
+  </div>
+
+  <div class="app-body">
+
+    <!-- ─── BUZZER CONTROLS ─── -->
+    <div class="buzzer-panel">
+      <div class="panel-title">⚔ BUZZER CONTROL</div>
+
+      <div class="q-number" id="q-display">—</div>
+      <div class="buzzer-state-badge state-disabled" id="state-badge">STANDBY</div>
+
+      <div id="winner-zone"></div>
+
+      <div class="ctrl-row">
+        <button class="btn btn-enable"  onclick="cmd('enable-buzzer')">▶ ENABLE</button>
+        <button class="btn btn-disable" onclick="cmd('disable-buzzer')">◼ DISABLE</button>
+        <button class="btn btn-reset"   onclick="cmd('reset-buzzer')">↺ RESET</button>
+      </div>
+      <button class="btn btn-panic" onclick="cmd('panic')">🚨 PANIC — FULL RESET</button>
+    </div>
+
+    <!-- ─── TEAMS + SCORES ─── -->
+    <div class="teams-panel">
+      <div class="panel-title">⚡ DUEL — SCORE CONTROL</div>
+
+      <div class="duel-grid">
+
+        <!-- Team A -->
+        <div class="team-card" id="card-a">
+          <div class="team-card-header">
+            <div class="team-status-dot" id="dot-a"></div>
+            <div>
+              <div class="team-card-name" id="name-a">—</div>
+              <div class="team-card-id"   id="id-a">—</div>
+            </div>
+          </div>
+          <div class="team-score-display" id="score-a">0</div>
+          <div class="score-controls">
+            <button class="btn btn-score btn-score-lg btn-plus" onclick="score('a', 10)">+10</button>
+            <button class="btn btn-score btn-score-lg btn-plus" onclick="score('a', 1)">+1</button>
+            <button class="btn btn-score btn-score-lg btn-minus" onclick="score('a', -10)">−10</button>
+            <button class="btn btn-score btn-score-lg btn-minus" onclick="score('a', -1)">−1</button>
+          </div>
+        </div>
+
+        <!-- VS -->
+        <div class="vs-divider">
+          <div class="vs-pill">vs</div>
+        </div>
+
+        <!-- Team B -->
+        <div class="team-card" id="card-b">
+          <div class="team-card-header">
+            <div class="team-status-dot" id="dot-b"></div>
+            <div>
+              <div class="team-card-name" id="name-b">—</div>
+              <div class="team-card-id"   id="id-b">—</div>
+            </div>
+          </div>
+          <div class="team-score-display" id="score-b">0</div>
+          <div class="score-controls">
+            <button class="btn btn-score btn-score-lg btn-plus" onclick="score('b', 10)">+10</button>
+            <button class="btn btn-score btn-score-lg btn-plus" onclick="score('b', 1)">+1</button>
+            <button class="btn btn-score btn-score-lg btn-minus" onclick="score('b', -10)">−10</button>
+            <button class="btn btn-score btn-score-lg btn-minus" onclick="score('b', -1)">−1</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reset scores -->
+      <div class="ctrl-row" style="margin-top:16px">
+        <button class="btn btn-reset" style="flex:1" onclick="cmd('reset-scores')">↺ RESET ALL SCORES</button>
+      </div>
+
+      <!-- Set teams -->
+      <div class="section-sub">Configure New Match</div>
+      <div class="set-teams-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Team A — ID</label>
+            <input type="text" id="new-a-id" placeholder="e.g. gadzit" />
+          </div>
+          <div class="form-group">
+            <label>Team A — Name</label>
+            <input type="text" id="new-a-name" placeholder="GadzIT" />
+          </div>
+          <div class="form-group">
+            <label>Team B — ID</label>
+            <input type="text" id="new-b-id" placeholder="e.g. phoenix" />
+          </div>
+          <div class="form-group">
+            <label>Team B — Name</label>
+            <input type="text" id="new-b-name" placeholder="Phoenix" />
+          </div>
+        </div>
+        <button class="btn btn-set" onclick="setTeams()">⚔ SET TEAMS &amp; START NEW MATCH</button>
+      </div>
+    </div>
+
+    <!-- ─── EVENT LOG ─── -->
+    <div class="log-panel">
+      <div class="panel-title">📜 EVENT LOG</div>
+      <div id="event-log"></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const API = 'http://localhost:8000';
+let token   = '';   // HTTP Bearer token — admin API calls
+let wsToken = '';   // WS-specific token (different secret + type:ws)
+let ws      = null;
+let duelState = { team_a: null, team_b: null, buzzer_state: 'disabled', buzzer_winner: null };
+
+// ── Login ────────────────────────────────────────────────────────────────────
+async function doLogin() {
+  const user = document.getElementById('username').value;
+  const pass = document.getElementById('password').value;
+  const errEl = document.getElementById('login-error');
+  errEl.style.display = 'none';
+  try {
+    const res  = await fetch(`${API}/login`, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: user, password: pass }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.detail || 'Login failed');
+    token   = data.access_token;  // for HTTP Authorization header
+    wsToken = data.ws_token;      // for WebSocket handshake
+    document.getElementById('login-screen').style.display = 'none';
+    const appEl = document.getElementById('app-screen');
+    appEl.style.display = 'flex'; appEl.style.flexDirection = 'column';
+    connectWS();
+  } catch(e) {
+    errEl.textContent = e.message; errEl.style.display = 'block';
+  }
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('password').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+});
+
+// ── WebSocket ────────────────────────────────────────────────────────────────
+function connectWS() {
+  setWS('connecting');
+  // Use wsToken (signed with WS secret, type:'ws') — NOT the HTTP access_token
+  // Sending access_token here causes 403 because verify_ws_token() rejects it
+  ws = new WebSocket(`${API.replace('http','ws')}/ws/session/main?token=${wsToken}`);
+  ws.onopen    = () => setWS('connected');
+  ws.onclose   = () => { setWS('disconnected'); setTimeout(connectWS, 3000); };
+  ws.onerror   = () => ws.close();
+  ws.onmessage = e => { try { handle(JSON.parse(e.data)); } catch(err) { console.error(err); } };
+}
+function setWS(s) {
+  document.getElementById('ws-dot').className = `ws-dot ws-${s}`;
+  document.getElementById('ws-label').textContent = s.toUpperCase();
+}
+
+// ── Messages ────────────────────────────────────────────────────────────────
+function handle(msg) {
+  switch(msg.type) {
+    case 'connected':
+    case 'state_sync':
+    case 'opponent_connected':
+    case 'opponent_disconnected':
+      duelState = { ...duelState, ...msg };
+      renderAll();
+      if (msg.type.includes('connected')) log('join', msg.type === 'opponent_connected' ? `→ ${msg.team_id} online` : `→ Client connected`);
+      if (msg.type === 'opponent_disconnected') log('join', `← ${msg.team_id} offline`);
+      break;
+    case 'buzzer_locked':
+      duelState.buzzer_state  = 'locked';
+      duelState.buzzer_winner = msg.winner_id;
+      duelState.buzzer_winner_name = msg.winner_name;
+      if (msg.team_a) duelState.team_a = msg.team_a;
+      if (msg.team_b) duelState.team_b = msg.team_b;
+      renderAll();
+      log('buzz', `🔔 BUZZ — ${msg.winner_name}`);
+      break;
+    case 'score_updated':
+      if (msg.team_a) duelState.team_a = msg.team_a;
+      if (msg.team_b) duelState.team_b = msg.team_b;
+      renderScores(true);
+      break;
+  }
+}
+
+// ── Render ───────────────────────────────────────────────────────────────────
+function renderAll() {
+  renderTeams();
+  renderState();
+  renderScores(false);
+}
+
+function renderTeams() {
+  const { team_a, team_b } = duelState;
+  if (team_a) {
+    document.getElementById('name-a').textContent = team_a.name;
+    document.getElementById('id-a').textContent   = team_a.id.toUpperCase();
+    document.getElementById('dot-a').className    = 'team-status-dot' + (team_a.is_connected ? ' on' : '');
+  }
+  if (team_b) {
+    document.getElementById('name-b').textContent = team_b.name;
+    document.getElementById('id-b').textContent   = team_b.id.toUpperCase();
+    document.getElementById('dot-b').className    = 'team-status-dot' + (team_b.is_connected ? ' on' : '');
+  }
+}
+
+function renderState() {
+  const { buzzer_state, buzzer_winner, buzzer_winner_name, buzzer_timestamp, question_number } = duelState;
+  const badge = document.getElementById('state-badge');
+  badge.className = `buzzer-state-badge state-${buzzer_state}`;
+  badge.textContent = { disabled: 'STANDBY', enabled: '● BUZZERS OPEN', locked: '⚡ LOCKED' }[buzzer_state] || buzzer_state.toUpperCase();
+
+  document.getElementById('q-display').textContent = question_number > 0 ? `QUESTION ${question_number}` : '—';
+
+  const wz = document.getElementById('winner-zone');
+  if (buzzer_state === 'locked' && buzzer_winner) {
+    const ts = buzzer_timestamp ? new Date(buzzer_timestamp * 1000).toLocaleTimeString() : '';
+    wz.innerHTML = `
+      <div class="winner-card">
+        <div class="winner-card-label">BUZZED FIRST</div>
+        <div class="winner-card-name">${buzzer_winner_name || buzzer_winner}</div>
+        <div class="winner-card-time">${ts}</div>
+      </div>`;
+  } else {
+    wz.innerHTML = '';
+  }
+
+  // Highlight winner card
+  const { team_a, team_b } = duelState;
+  document.getElementById('card-a').className = 'team-card' + (buzzer_state === 'locked' && team_a && buzzer_winner === team_a.id ? ' winner-card-state' : '');
+  document.getElementById('card-b').className = 'team-card' + (buzzer_state === 'locked' && team_b && buzzer_winner === team_b.id ? ' winner-card-state' : '');
+}
+
+let prevScores = { a: 0, b: 0 };
+function renderScores(animate) {
+  const { team_a, team_b } = duelState;
+  if (team_a) {
+    const el = document.getElementById('score-a');
+    if (animate && team_a.score !== prevScores.a) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+    el.textContent = team_a.score;
+    prevScores.a   = team_a.score;
+  }
+  if (team_b) {
+    const el = document.getElementById('score-b');
+    if (animate && team_b.score !== prevScores.b) { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); }
+    el.textContent = team_b.score;
+    prevScores.b   = team_b.score;
+  }
+}
+
+// ── Commands ────────────────────────────────────────────────────────────────
+async function cmd(action) {
+  try {
+    const res = await fetch(`${API}/admin/${action}`, {
+      method: 'POST', headers: { Authorization: `Bearer ${token}` },
+    });
+    const data = await res.json();
+    if (!res.ok) alert(data.detail || 'Action failed');
+    log('admin', `CMD: ${action.toUpperCase()}`);
+  } catch(e) { alert('Error: ' + e.message); }
+}
+
+async function score(slot, delta) {
+  const team = duelState[`team_${slot}`];
+  if (!team) return;
+  try {
+    const res = await fetch(`${API}/admin/update-score`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ team_id: team.id, delta }),
+    });
+    if (!res.ok) { const d = await res.json(); alert(d.detail); }
+    log('admin', `SCORE ${team.name}: ${delta > 0 ? '+' : ''}${delta}`);
+  } catch(e) { alert('Error: ' + e.message); }
+}
+
+async function setTeams() {
+  const aId   = document.getElementById('new-a-id').value.trim();
+  const aName = document.getElementById('new-a-name').value.trim();
+  const bId   = document.getElementById('new-b-id').value.trim();
+  const bName = document.getElementById('new-b-name').value.trim();
+  if (!aId || !aName || !bId || !bName) { alert('Fill in all four fields'); return; }
+  try {
+    const params = `team_a_id=${encodeURIComponent(aId)}&team_a_name=${encodeURIComponent(aName)}&team_b_id=${encodeURIComponent(bId)}&team_b_name=${encodeURIComponent(bName)}`;
+    const res = await fetch(`${API}/admin/set-teams?${params}`, {
+      method: 'POST', headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!res.ok) { const d = await res.json(); alert(d.detail); return; }
+    ['new-a-id','new-a-name','new-b-id','new-b-name'].forEach(id => document.getElementById(id).value = '');
+    log('admin', `⚔ NEW MATCH: ${aName} vs ${bName}`);
+  } catch(e) { alert('Error: ' + e.message); }
+}
+
+// ── Log ─────────────────────────────────────────────────────────────────────
+function log(type, text) {
+  const container = document.getElementById('event-log');
+  const el = document.createElement('div');
+  el.className = `log-entry ${type}`;
+  const t = new Date().toLocaleTimeString();
+  el.innerHTML = `<span class="log-time">${t}</span>${text}`;
+  container.prepend(el);
+  while (container.children.length > 60) container.removeChild(container.lastChild);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+    "expo": {
+        "name": "Agora A&M Buzzer",
+        "slug": "agora-buzzer",
+        "version": "1.0.0",
+        "orientation": "portrait",
+        "icon": "./assets/icon.png",
+        "userInterfaceStyle": "dark",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#0C0A07"
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.agora.buzzer"
+        },
+        "android": {
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#0C0A07"
+            },
+            "package": "com.agora.buzzer"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png",
+            "bundler": "metro"
+        },
+        "plugins": [
+            "expo-router"
+        ],
+        "extra": {
+            "eas": {
+                "projectId": "your-project-id"
+            }
+        }
+    }
+}

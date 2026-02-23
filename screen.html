@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agora A&M — Live Duel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #F5EDD8;
+      --bg-warm:     #EDE0C4;
+      --parchment:   #2C1A0E;
+      --bronze:      #7A5C3A;
+      --border:      #D4C4A8;
+      --text-dim:    #B09070;
+      --text-mid:    #8C6840;
+      --accent-gold: #9A7410;
+      --accent-red:  #9B2D22;
+      --accent-fire: #C4621A;
+      --green:       #2A6B2E;
+
+      /* Per-side tints */
+      --side-a-tint:   rgba(154,116,16,0.06);
+      --side-b-tint:   rgba(155,45,34,0.05);
+      --side-a-border: rgba(154,116,16,0.35);
+      --side-b-border: rgba(155,45,34,0.30);
+    }
+
+    html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg); }
+
+    body {
+      font-family: 'Cinzel', serif;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      position: relative;
+    }
+
+    /* ── Parchment grain ── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 200;
+    }
+
+    /* ══════════════ TOP BAR ══════════════ */
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 48px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(245,237,216,0.9);
+      backdrop-filter: blur(8px);
+      position: relative; z-index: 10;
+    }
+    .topbar-brand {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: 22px; letter-spacing: 8px; color: var(--parchment);
+    }
+    .topbar-center {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; letter-spacing: 5px; color: var(--text-dim);
+      text-transform: uppercase; text-align: center;
+    }
+    .topbar-right { display: flex; align-items: center; gap: 10px; }
+    .live-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent-fire); animation: blink 1s infinite;
+    }
+    .live-dot.on { background: var(--green); animation: none; box-shadow: 0 0 6px var(--green); }
+    .live-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px; letter-spacing: 3px; color: var(--text-dim);
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    /* ══════════════ STAGE ══════════════ */
+    .stage {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      min-height: 0;
+      position: relative;
+    }
+
+    /* ── Side panels ── */
+    .side {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 40px 48px;
+      position: relative;
+      transition: background 0.8s, opacity 0.6s;
+    }
+    .side-a { background: var(--side-a-tint); border-right: 1px solid var(--side-a-border); }
+    .side-b { background: var(--side-b-tint); border-left:  1px solid var(--side-b-border); }
+
+    /* State-driven side classes */
+    .side.winner {
+      background: rgba(154,116,16,0.14) !important;
+      animation: winPulse 2s ease-in-out infinite;
+    }
+    .side.loser  { opacity: 0.38 !important; filter: grayscale(0.5); }
+    .side.active { background: rgba(42,107,46,0.10) !important; }
+
+    @keyframes winPulse {
+      0%,100% { background: rgba(154,116,16,0.12); }
+      50%      { background: rgba(154,116,16,0.22); }
+    }
+
+    /* Connection indicator line */
+    .side-connection {
+      position: absolute; top: 20px;
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px; letter-spacing: 3px; color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .side-a .side-connection { right: 28px; }
+    .side-b .side-connection { left: 28px; }
+    .conn-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); }
+    .conn-dot.online  { background: var(--green); box-shadow: 0 0 5px var(--green); }
+
+    /* Team name */
+    .team-id-tag {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; letter-spacing: 4px; color: var(--text-dim);
+      text-transform: uppercase; margin-bottom: 12px;
+    }
+    .team-name {
+      font-family: 'Cinzel Decorative', serif;
+      font-size: clamp(32px, 4.5vw, 68px);
+      color: var(--parchment);
+      letter-spacing: 4px;
+      text-align: center;
+      line-height: 1.1;
+      transition: color 0.4s;
+    }
+    .side.winner .team-name { color: var(--accent-gold); }
+    .side.loser  .team-name { color: var(--text-dim); }
+
+    /* Score */
+    .team-score-wrap { margin-top: 24px; text-align: center; }
+    .score-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px; letter-spacing: 5px; color: var(--text-dim);
+      text-transform: uppercase; margin-bottom: 6px;
+    }
+    .score-value {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(64px, 10vw, 128px);
+      color: var(--bronze);
+      line-height: 1;
+      transition: all 0.3s;
+    }
+    .side.winner .score-value { color: var(--accent-gold); }
+    .side.loser  .score-value { color: var(--text-dim); }
+    .score-value.bump { animation: scoreBump .4s cubic-bezier(.34,1.56,.64,1); }
+    @keyframes scoreBump { from { transform: scale(1.35); color: var(--accent-gold); } to { transform: scale(1); } }
+
+    /* Ornament under score */
+    .side-ornament {
+      display: flex; align-items: center; gap: 10px;
+      margin-top: 20px; width: 80%;
+    }
+    .orn-line { flex: 1; height: 1px; background: var(--border); }
+    .orn-gem  { width: 6px; height: 6px; background: var(--bronze); transform: rotate(45deg); transition: background 0.4s; }
+    .side.winner .orn-gem { background: var(--accent-gold); }
+    .side.winner .orn-line { background: rgba(154,116,16,0.4); }
+
+    /* Buzz result badge */
+    .buzz-badge {
+      margin-top: 28px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; letter-spacing: 5px;
+      text-transform: uppercase;
+      padding: 10px 28px;
+      border: 1px solid;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s, transform 0.4s;
+    }
+    .buzz-badge.show { opacity: 1; transform: translateY(0); }
+    .buzz-badge.win  { border-color: var(--accent-gold); color: var(--accent-gold); background: rgba(154,116,16,0.08); }
+    .buzz-badge.lose { border-color: var(--border); color: var(--text-dim); background: transparent; }
+
+    /* ── Center Divider ── */
+    .divider {
+      width: 1px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative;
+      background: var(--border);
+    }
+
+    .vs-circle {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 2;
+      transition: all 0.6s;
+    }
+    .vs-text {
+      font-family: 'IM Fell English', serif;
+      font-size: 18px; font-style: italic;
+      color: var(--text-mid); letter-spacing: 2px;
+      transition: all 0.4s;
+    }
+
+    /* VS circle states */
+    .vs-circle.enabled {
+      border-color: var(--green);
+      box-shadow: 0 0 20px rgba(42,107,46,0.25), 0 0 60px rgba(42,107,46,0.1);
+      animation: vsPulse 1.2s ease-in-out infinite;
+    }
+    .vs-circle.enabled .vs-text { color: var(--green); }
+    @keyframes vsPulse {
+      0%,100% { box-shadow: 0 0 20px rgba(42,107,46,0.25); }
+      50%      { box-shadow: 0 0 40px rgba(42,107,46,0.5), 0 0 80px rgba(42,107,46,0.15); }
+    }
+    .vs-circle.locked {
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 30px rgba(154,116,16,0.4);
+    }
+    .vs-circle.locked .vs-text { color: var(--accent-gold); font-style: normal; font-size: 22px; }
+
+    /* Divider tick marks */
+    .divider-tick {
+      width: 12px; height: 1px; background: var(--border);
+      position: absolute; left: 50%; transform: translateX(-50%);
+    }
+
+    /* ══════════════ WAITING STATE CENTER ══════════════ */
+    .center-message {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center; z-index: 5; pointer-events: none;
+      transition: opacity 0.4s;
+    }
+
+    /* ══════════════ BOTTOM BAR ══════════════ */
+    .bottombar {
+      border-top: 1px solid var(--border);
+      padding: 14px 48px;
+      display: flex; align-items: center; gap: 0;
+      background: rgba(245,237,216,0.9);
+      position: relative; z-index: 10;
+    }
+
+    .q-indicator {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px; letter-spacing: 5px; color: var(--text-dim);
+      text-transform: uppercase; margin-right: auto;
+    }
+
+    .state-pill {
+      padding: 6px 20px; border: 1px solid;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+      transition: all 0.4s;
+    }
+    .state-pill.disabled { border-color: var(--border); color: var(--text-dim); }
+    .state-pill.enabled  { border-color: var(--green);  color: var(--green);
+                           box-shadow: 0 0 12px rgba(42,107,46,0.15); animation: pillPulse 1.2s infinite; }
+    .state-pill.locked   { border-color: var(--accent-gold); color: var(--accent-gold); }
+    @keyframes pillPulse {
+      0%,100%{opacity:1} 50%{opacity:0.65}
+    }
+
+    .bottombar-right { margin-left: auto; }
+    .brand-small {
+      font-family: 'Cinzel', serif; font-size: 12px;
+      letter-spacing: 6px; color: var(--text-dim);
+    }
+
+    /* ══════════════ BUZZ FLASH ══════════════ */
+    #buzz-flash {
+      position: fixed; inset: 0;
+      background: rgba(154,116,16,0.12);
+      pointer-events: none; z-index: 150;
+      display: none;
+    }
+    #buzz-flash.show { display: block; animation: flashOut 1.4s ease forwards; }
+    @keyframes flashOut { 0%{opacity:1} 100%{opacity:0} }
+
+    /* ══════════════ ENABLED TENSION LINES ══════════════ */
+    .tension-line {
+      position: absolute; top: 0; bottom: 0;
+      width: 2px; opacity: 0; transition: opacity 0.4s;
+      background: linear-gradient(to bottom, transparent, var(--green) 30%, var(--green) 70%, transparent);
+    }
+    .tension-line.show { opacity: 0.35; }
+    .tension-line-left  { left: 0; }
+    .tension-line-right { right: 0; }
+  </style>
+</head>
+<body>
+
+<div id="buzz-flash"></div>
+
+<!-- ══ TOP BAR ══ -->
+<div class="topbar">
+  <span class="topbar-brand">AGORA</span>
+  <div class="topbar-center">
+    <div id="q-label">GRAND DUEL</div>
+  </div>
+  <div class="topbar-right">
+    <div class="live-dot" id="live-dot"></div>
+    <span class="live-label" id="live-label">CONNECTING</span>
+  </div>
+</div>
+
+<!-- ══ STAGE ══ -->
+<div class="stage" id="stage">
+
+  <!-- Team A — Left -->
+  <div class="side side-a" id="side-a">
+    <div class="tension-line tension-line-left" id="tl-left"></div>
+
+    <div class="side-connection">
+      <div class="conn-dot" id="conn-a"></div>
+      <span id="conn-a-label">OFFLINE</span>
+    </div>
+
+    <div class="team-id-tag" id="a-id-tag">TEAM A</div>
+    <div class="team-name" id="a-name">—</div>
+
+    <div class="team-score-wrap">
+      <div class="score-label">SCORE</div>
+      <div class="score-value" id="a-score">0</div>
+    </div>
+
+    <div class="side-ornament">
+      <div class="orn-line"></div>
+      <div class="orn-gem"></div>
+      <div class="orn-line"></div>
+    </div>
+
+    <div class="buzz-badge" id="a-badge">BUZZED FIRST</div>
+  </div>
+
+  <!-- Center Divider -->
+  <div class="divider">
+    <div class="divider-tick" style="top:15%"></div>
+    <div class="divider-tick" style="top:30%"></div>
+
+    <div class="vs-circle" id="vs-circle">
+      <span class="vs-text" id="vs-text">vs</span>
+    </div>
+
+    <div class="divider-tick" style="bottom:30%"></div>
+    <div class="divider-tick" style="bottom:15%"></div>
+  </div>
+
+  <!-- Team B — Right -->
+  <div class="side side-b" id="side-b">
+    <div class="tension-line tension-line-right" id="tl-right"></div>
+
+    <div class="side-connection">
+      <div class="conn-dot" id="conn-b"></div>
+      <span id="conn-b-label">OFFLINE</span>
+    </div>
+
+    <div class="team-id-tag" id="b-id-tag">TEAM B</div>
+    <div class="team-name" id="b-name">—</div>
+
+    <div class="team-score-wrap">
+      <div class="score-label">SCORE</div>
+      <div class="score-value" id="b-score">0</div>
+    </div>
+
+    <div class="side-ornament">
+      <div class="orn-line"></div>
+      <div class="orn-gem"></div>
+      <div class="orn-line"></div>
+    </div>
+
+    <div class="buzz-badge" id="b-badge">BUZZED FIRST</div>
+  </div>
+
+</div>
+
+<!-- ══ BOTTOM BAR ══ -->
+<div class="bottombar">
+  <span class="q-indicator" id="q-indicator">—</span>
+  <div class="state-pill disabled" id="state-pill">STANDBY</div>
+  <div class="bottombar-right">
+    <span class="brand-small">Agora A&M SYSTEMS</span>
+  </div>
+</div>
+
+<script>
+// ── Config ────────────────────────────────────────────────────────────────────
+const WS_BASE      = 'ws://localhost:8000';
+const API_BASE     = 'http://localhost:8000';
+const SCREEN_SECRET = 'agora-screen-2025';
+
+let ws      = null;
+let wsToken = null;
+let state   = { buzzer_state: 'disabled', team_a: null, team_b: null, question_number: 0 };
+let prevScores = { a: 0, b: 0 };
+
+// ── Bootstrap ─────────────────────────────────────────────────────────────────
+(async function init() {
+  try {
+    const res  = await fetch(`${API_BASE}/screen-token?secret=${SCREEN_SECRET}`, { method: 'POST' });
+    const data = await res.json();
+    wsToken    = data.ws_token;
+    connect();
+  } catch(e) {
+    console.error('Could not get screen token:', e);
+    setLive(false);
+  }
+})();
+
+function connect() {
+  ws = new WebSocket(`${WS_BASE}/ws/session/main?token=${wsToken}`);
+  ws.onopen    = () => setLive(true);
+  ws.onclose   = () => { setLive(false); setTimeout(connect, 3000); };
+  ws.onerror   = () => ws.close();
+  ws.onmessage = e => { try { handle(JSON.parse(e.data)); } catch(err) { console.error(err); } };
+}
+
+function setLive(on) {
+  document.getElementById('live-dot').className   = 'live-dot' + (on ? ' on' : '');
+  document.getElementById('live-label').textContent = on ? '● LIVE' : 'RECONNECTING';
+}
+
+// ── Message handler ───────────────────────────────────────────────────────────
+function handle(msg) {
+  switch(msg.type) {
+    case 'connected':
+    case 'state_sync':
+    case 'opponent_connected':
+    case 'opponent_disconnected':
+      state = { ...state, ...msg };
+      renderAll();
+      break;
+
+    case 'buzzer_locked':
+      state.buzzer_state      = 'locked';
+      state.buzzer_winner     = msg.winner_id;
+      state.buzzer_winner_name = msg.winner_name;
+      if (msg.team_a) state.team_a = msg.team_a;
+      if (msg.team_b) state.team_b = msg.team_b;
+      renderAll();
+      showBuzzFlash();
+      playBuzzSound();
+      break;
+
+    case 'score_updated':
+      if (msg.team_a) state.team_a = msg.team_a;
+      if (msg.team_b) state.team_b = msg.team_b;
+      renderScores(true);
+      break;
+  }
+}
+
+// ── Render all ────────────────────────────────────────────────────────────────
+function renderAll() {
+  const { team_a, team_b, buzzer_state, buzzer_winner, question_number } = state;
+
+  // Teams
+  if (team_a) {
+    document.getElementById('a-id-tag').textContent   = team_a.id.toUpperCase();
+    document.getElementById('a-name').textContent     = team_a.name;
+    document.getElementById('conn-a').className       = 'conn-dot' + (team_a.is_connected ? ' online' : '');
+    document.getElementById('conn-a-label').textContent = team_a.is_connected ? 'ONLINE' : 'OFFLINE';
+  }
+  if (team_b) {
+    document.getElementById('b-id-tag').textContent   = team_b.id.toUpperCase();
+    document.getElementById('b-name').textContent     = team_b.name;
+    document.getElementById('conn-b').className       = 'conn-dot' + (team_b.is_connected ? ' online' : '');
+    document.getElementById('conn-b-label').textContent = team_b.is_connected ? 'ONLINE' : 'OFFLINE';
+  }
+
+  renderScores(false);
+
+  // Buzzer state styling
+  const sideA   = document.getElementById('side-a');
+  const sideB   = document.getElementById('side-b');
+  const vsCircle = document.getElementById('vs-circle');
+  const vsText   = document.getElementById('vs-text');
+  const pill     = document.getElementById('state-pill');
+  const badgeA   = document.getElementById('a-badge');
+  const badgeB   = document.getElementById('b-badge');
+  const tlL      = document.getElementById('tl-left');
+  const tlR      = document.getElementById('tl-right');
+
+  // Reset classes
+  sideA.className    = 'side side-a';
+  sideB.className    = 'side side-b';
+  vsCircle.className = 'vs-circle';
+  badgeA.className   = 'buzz-badge';
+  badgeB.className   = 'buzz-badge';
+  tlL.className      = 'tension-line tension-line-left';
+  tlR.className      = 'tension-line tension-line-right';
+
+  pill.className    = `state-pill ${buzzer_state}`;
+  pill.textContent  = buzzer_state === 'disabled' ? 'STANDBY'
+                    : buzzer_state === 'enabled'  ? '● BUZZERS OPEN'
+                    :                               '⚡ LOCKED';
+
+  if (buzzer_state === 'enabled') {
+    vsCircle.className = 'vs-circle enabled';
+    vsText.textContent = '!';
+    sideA.classList.add('active');
+    sideB.classList.add('active');
+    tlL.classList.add('show');
+    tlR.classList.add('show');
+
+  } else if (buzzer_state === 'locked' && team_a && team_b) {
+    vsCircle.className = 'vs-circle locked';
+    vsText.textContent = '⚡';
+
+    const aWon = buzzer_winner === team_a.id;
+    sideA.classList.add(aWon ? 'winner' : 'loser');
+    sideB.classList.add(aWon ? 'loser' : 'winner');
+
+    badgeA.className = `buzz-badge show ${aWon ? 'win' : 'lose'}`;
+    badgeA.textContent = aWon ? '⚡ BUZZED FIRST' : 'TOO SLOW';
+    badgeB.className = `buzz-badge show ${!aWon ? 'win' : 'lose'}`;
+    badgeB.textContent = !aWon ? '⚡ BUZZED FIRST' : 'TOO SLOW';
+
+  } else {
+    vsText.textContent = 'vs';
+  }
+
+  // Question number
+  const qEl = document.getElementById('q-indicator');
+  const qLabel = document.getElementById('q-label');
+  if (question_number > 0) {
+    qEl.textContent    = `QUESTION ${question_number}`;
+    qLabel.textContent = `ROUND ${question_number}`;
+  } else {
+    qEl.textContent    = '—';
+    qLabel.textContent = 'GRAND DUEL';
+  }
+}
+
+function renderScores(animate) {
+  const { team_a, team_b } = state;
+  if (!team_a || !team_b) return;
+
+  const elA = document.getElementById('a-score');
+  const elB = document.getElementById('b-score');
+
+  if (animate) {
+    if (team_a.score !== prevScores.a) { elA.classList.remove('bump'); void elA.offsetWidth; elA.classList.add('bump'); }
+    if (team_b.score !== prevScores.b) { elB.classList.remove('bump'); void elB.offsetWidth; elB.classList.add('bump'); }
+  }
+
+  elA.textContent = team_a.score;
+  elB.textContent = team_b.score;
+  prevScores = { a: team_a.score, b: team_b.score };
+}
+
+// ── Effects ───────────────────────────────────────────────────────────────────
+function showBuzzFlash() {
+  const el = document.getElementById('buzz-flash');
+  el.className = '';
+  void el.offsetWidth;
+  el.className = 'show';
+}
+
+function playBuzzSound() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+    // Deep resonant THUD
+    const o1 = ctx.createOscillator(), g1 = ctx.createGain();
+    o1.connect(g1); g1.connect(ctx.destination);
+    o1.frequency.setValueAtTime(120, ctx.currentTime);
+    o1.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.5);
+    g1.gain.setValueAtTime(0.7, ctx.currentTime);
+    g1.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
+    o1.start(); o1.stop(ctx.currentTime + 0.6);
+
+    // Sharp HIGH TING
+    const o2 = ctx.createOscillator(), g2 = ctx.createGain();
+    o2.type = 'triangle'; o2.connect(g2); g2.connect(ctx.destination);
+    o2.frequency.setValueAtTime(1100, ctx.currentTime + 0.04);
+    o2.frequency.exponentialRampToValueAtTime(550, ctx.currentTime + 0.3);
+    g2.gain.setValueAtTime(0.4, ctx.currentTime + 0.04);
+    g2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.9);
+    o2.start(ctx.currentTime + 0.04); o2.stop(ctx.currentTime + 0.9);
+  } catch(e) {}
+}
+
+// ── Keepalive ─────────────────────────────────────────────────────────────────
+setInterval(() => {
+  if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify({ type: 'ping' }));
+}, 25000);
+</script>
+</body>
+</html>
