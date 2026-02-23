@@ -160,11 +160,16 @@ async def team_join(req: TeamJoinRequest):
 
 @app.post("/screen-token", tags=["Screen"])
 async def get_screen_token(secret: str):
+    logger.info(f"🖥  SCREEN TOKEN REQUEST: secret provided? {'YES' if secret else 'NO'}")
     if secret != settings.screen_secret:
+        logger.warning(f"❌ SCREEN TOKEN REJECTED: Wrong secret (got '{secret[:2]}...', expected '{settings.screen_secret[:2]}...')")
         raise HTTPException(status_code=403, detail="Wrong screen secret")
+    
+    token = create_ws_token("screen", "screen")
+    logger.info("✅ SCREEN TOKEN ISSUED")
     return {
         "access_token": create_access_token({"sub": "screen", "role": "screen"}),
-        "ws_token":     create_ws_token("screen", "screen"),
+        "ws_token":     token,
     }
 
 
