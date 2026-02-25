@@ -1,0 +1,908 @@
+\documentclass[a4paper,10.5pt]{article}
+
+% ─── Packages ────────────────────────────────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[provide=*,french]{babel}
+\usepackage[activate={false},final]{microtype}
+\usepackage[top=2cm, bottom=2cm, left=1.8cm, right=1.8cm, headheight=15pt]{geometry}
+\usepackage{amsmath, amssymb, amsthm, mathtools}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable, theorems}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.pathmorphing, calc}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{esint}
+
+% ─── Color Palette ───────────────────────────────────────────────────────────
+\definecolor{deepnavy}{HTML}{14213D}
+\definecolor{royalblue}{HTML}{2563EB}
+\definecolor{skyblue}{HTML}{60A5FA}
+\definecolor{lightblue}{HTML}{DBEAFE}
+\definecolor{emerald}{HTML}{059669}
+\definecolor{mint}{HTML}{D1FAE5}
+\definecolor{crimson}{HTML}{DC2626}
+\definecolor{rose}{HTML}{FEE2E2}
+\definecolor{gold}{HTML}{D97706}
+\definecolor{cream}{HTML}{FFFBEB}
+\definecolor{amber}{HTML}{F59E0B}
+\definecolor{peach}{HTML}{FEF3C7}
+\definecolor{lavender}{HTML}{7C3AED}
+\definecolor{lilac}{HTML}{EDE9FE}
+\definecolor{teal}{HTML}{0D9488}
+\definecolor{tealmint}{HTML}{CCFBF1}
+\definecolor{slate}{HTML}{64748B}
+\definecolor{lightgray}{HTML}{F1F5F9}
+\definecolor{magenta}{HTML}{9D174D}
+\definecolor{pink}{HTML}{FCE7F3}
+\definecolor{orange}{HTML}{EA580C}
+\definecolor{orangelight}{HTML}{FED7AA}
+
+% ─── Page style ──────────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\color{slate}\small\textit{Af.K — Électromagnétisme}}
+\fancyhead[C]{\color{deepnavy}\small\bfseries Chapitres I \& II}
+\fancyhead[R]{\color{slate}\small\textit{Résumé Complet}}
+\fancyfoot[C]{\color{slate}\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{royalblue}\leaders\hrule height \headrulewidth\hfill}}
+
+% ─── Section/Subsection styles ───────────────────────────────────────────────
+\newcommand{\sectionbox}[1]{%
+  \colorbox{deepnavy}{\color{white}\parbox{\dimexpr\linewidth-2\fboxsep}%
+    {\vspace{3pt}\hspace{8pt}\large\bfseries #1\vspace{3pt}}}%
+}
+\titleformat{\section}[block]{\color{deepnavy}}{}{0pt}{\sectionbox}
+\titlespacing*{\section}{0pt}{14pt}{8pt}
+
+\newcommand{\subsectionbox}[1]{%
+  \colorbox{royalblue!85!black}{\color{white}\parbox{\dimexpr\linewidth-2\fboxsep}%
+    {\vspace{2pt}\hspace{6pt}\normalsize\bfseries #1\vspace{2pt}}}%
+}
+\titleformat{\subsection}[block]{\color{royalblue}}{}{0pt}{\subsectionbox}
+\titlespacing*{\subsection}{0pt}{10pt}{6pt}
+
+% ─── tcolorbox environments ──────────────────────────────────────────────────
+\newenvironment{defbox}[2][royalblue]{
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colframe=#1!55!black, colback=#1!7!white,
+    arc=4pt, boxrule=0.6pt,
+    title={\color{white}\bfseries\small #2},
+    attach boxed title to top left={yshift=-2mm, xshift=5mm},
+    boxed title style={colback=#1!75!black, colframe=#1!75!black,
+      arc=3pt, boxrule=0pt, left=5pt, right=5pt, top=2pt, bottom=2pt},
+    before skip=8pt, after skip=8pt, left=7pt, right=7pt, top=9pt, bottom=7pt
+  ]
+}{
+  \end{tcolorbox}
+}
+
+\newenvironment{formulabox}[2][emerald]{
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colframe=#1!55!black, colback=#1!7!white,
+    arc=4pt, boxrule=0.6pt,
+    title={\color{white}\bfseries\small #2},
+    attach boxed title to top left={yshift=-2mm, xshift=5mm},
+    boxed title style={colback=#1!75!black, colframe=#1!75!black,
+      arc=3pt, boxrule=0pt, left=5pt, right=5pt, top=2pt, bottom=2pt},
+    before skip=8pt, after skip=8pt, left=7pt, right=7pt, top=9pt, bottom=7pt
+  ]
+}{
+  \end{tcolorbox}
+}
+
+\newenvironment{thmbox}[2][lavender]{
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colframe=#1!55!black, colback=#1!7!white,
+    arc=4pt, boxrule=0.6pt,
+    title={\color{white}\bfseries\small #2},
+    attach boxed title to top left={yshift=-2mm, xshift=5mm},
+    boxed title style={colback=#1!75!black, colframe=#1!75!black,
+      arc=3pt, boxrule=0pt, left=5pt, right=5pt, top=2pt, bottom=2pt},
+    before skip=8pt, after skip=8pt, left=7pt, right=7pt, top=9pt, bottom=7pt
+  ]
+}{
+  \end{tcolorbox}
+}
+
+\newenvironment{warnbox}[2][crimson]{
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colframe=#1!55!black, colback=#1!6!white,
+    arc=4pt, boxrule=0.6pt,
+    title={\color{white}\bfseries\small #2},
+    attach boxed title to top left={yshift=-2mm, xshift=5mm},
+    boxed title style={colback=#1!75!black, colframe=#1!75!black,
+      arc=3pt, boxrule=0pt, left=5pt, right=5pt, top=2pt, bottom=2pt},
+    before skip=8pt, after skip=8pt, left=7pt, right=7pt, top=9pt, bottom=7pt
+  ]
+}{
+  \end{tcolorbox}
+}
+
+\newenvironment{exbox}[2][gold]{
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colframe=#1!55!black, colback=#1!7!white,
+    arc=4pt, boxrule=0.6pt,
+    title={\color{white}\bfseries\small #2},
+    attach boxed title to top left={yshift=-2mm, xshift=5mm},
+    boxed title style={colback=#1!80!black, colframe=#1!80!black,
+      arc=3pt, boxrule=0pt, left=5pt, right=5pt, top=2pt, bottom=2pt},
+    before skip=8pt, after skip=8pt, left=7pt, right=7pt, top=9pt, bottom=7pt
+  ]
+}{
+  \end{tcolorbox}
+}
+
+\newenvironment{tipbox}[1][teal]{
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    colframe=#1!55!black, colback=#1!7!white,
+    arc=4pt, boxrule=0.6pt,
+    title={\color{white}\bfseries\small $\bigstar$ Astuces \& Remarques},
+    attach boxed title to top left={yshift=-2mm, xshift=5mm},
+    boxed title style={colback=#1!75!black, colframe=#1!75!black,
+      arc=3pt, boxrule=0pt, left=5pt, right=5pt, top=2pt, bottom=2pt},
+    before skip=8pt, after skip=8pt, left=7pt, right=7pt, top=9pt, bottom=7pt
+  ]
+}{
+  \end{tcolorbox}
+}
+
+% ─── Misc ────────────────────────────────────────────────────────────────────
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\columnsep}{12pt}
+
+\newcommand{\vect}[1]{\vec{#1}}
+\newcommand{\grad}{\vec{\nabla}}
+\newcommand{\divop}{\vec{\nabla}\cdot}
+\newcommand{\rotop}{\vec{\nabla}\wedge}
+\newcommand{\lapl}{\Delta}
+\newcommand{\vE}{\vec{E}}
+\newcommand{\vB}{\vec{B}}
+\newcommand{\vj}{\vec{j}}
+\newcommand{\vA}{\vec{A}}
+\newcommand{\vF}{\vec{F}}
+\newcommand{\highlight}[2][gold!30]{\colorbox{#1}{$\displaystyle #2$}}
+
+\hypersetup{colorlinks=true, linkcolor=royalblue, urlcolor=royalblue}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\begin{document}
+% ─────────────────────────────────────────────────────────────────────────────
+
+% ══════════════════════  TITLE  ═══════════════════════════════════════════════
+\begin{tcolorbox}[
+  enhanced, colframe=deepnavy, colback=deepnavy,
+  arc=8pt, boxrule=1pt, left=16pt, right=16pt, top=18pt, bottom=18pt,
+  shadow={4pt}{-4pt}{0pt}{black!50}
+]
+  \centering
+  {\color{gold}\LARGE\bfseries Électromagnétisme — Af.K}\\[6pt]
+  {\color{white!90!deepnavy}\Large Résumé Complet — Chapitres I \& II}\\[10pt]
+  \textcolor{skyblue}{\rule{0.55\linewidth}{0.4pt}}\\[8pt]
+  \begin{tabular}{@{\quad}c@{\quad}c@{\quad}c@{\quad}}
+    \textcolor{skyblue!80}{\bfseries Chapitre I} &
+    \textcolor{slate!50}{\large$\bullet$} &
+    \textcolor{skyblue!80}{\bfseries Chapitre II} \\
+    {\small\color{white!70!deepnavy}Analyse Vectorielle} &  &
+    {\small\color{white!70!deepnavy}Magnétostatique} \\
+    {\small\color{white!60!deepnavy}+ Milieu Conducteur} & &
+    {\small\color{white!60!deepnavy}dans le Vide} \\
+  \end{tabular}
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% ─── Légende ─────────────────────────────────────────────────────────────────
+\begin{tcolorbox}[enhanced, colframe=slate!30, colback=lightgray, arc=4pt,
+  boxrule=0.4pt, left=8pt, right=8pt, top=4pt, bottom=4pt]
+  \small\centering
+  \textcolor{royalblue!80!black}{\rule{10pt}{4pt}}\ Définition\quad
+  \textcolor{emerald!80!black}{\rule{10pt}{4pt}}\ Formule clé\quad
+  \textcolor{lavender!80!black}{\rule{10pt}{4pt}}\ Théorème\quad
+  \textcolor{crimson!80!black}{\rule{10pt}{4pt}}\ Attention\quad
+  \textcolor{gold!80!black}{\rule{10pt}{4pt}}\ Exemple\quad
+  \textcolor{teal!80!black}{\rule{10pt}{4pt}}\ Astuce
+\end{tcolorbox}
+
+\vspace{6pt}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Chapitre I — Analyse Vectorielle \& Électrocinétique}
+% ══════════════════════════════════════════════════════════════════════════════
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{A — Opérateur Nabla et Opérateurs Différentiels}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{multicols}{2}
+
+\begin{defbox}[royalblue]{Opérateur Nabla $\vec{\nabla}$}
+  L'opérateur nabla (ou del) est l'opérateur différentiel vectoriel fondamental.
+  En coordonnées \textbf{cartésiennes} :
+  \[
+    \vec{\nabla} = \frac{\partial}{\partial x}\vec{e}_x
+                 + \frac{\partial}{\partial y}\vec{e}_y
+                 + \frac{\partial}{\partial z}\vec{e}_z
+  \]
+  Il peut s'appliquer à un scalaire ou à un vecteur, donnant des opérateurs différents.
+\end{defbox}
+
+\begin{formulabox}{Gradient d'un scalaire}
+  Pour un champ scalaire $f(x,y,z,t)$ :
+  \[
+    \boxed{\vec{\nabla}f = \frac{\partial f}{\partial x}\vec{e}_x
+    + \frac{\partial f}{\partial y}\vec{e}_y
+    + \frac{\partial f}{\partial z}\vec{e}_z}
+  \]
+  \textbf{Propriétés :}
+  \begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item $\vec{\nabla}f \perp$ aux surfaces de niveau $f = \mathrm{cst}$
+    \item $\vec{\nabla}f$ pointe dans la direction de \textbf{variation maximale} de $f$
+    \item $|\vec{\nabla}f|$ est le taux de variation maximum
+  \end{itemize}
+\end{formulabox}
+
+\begin{formulabox}[teal]{Divergence d'un vecteur}
+  Pour un champ vectoriel $\vec{A}(x,y,z)$ :
+  \[
+    \boxed{\vec{\nabla}\cdot\vec{A} = \frac{\partial A_x}{\partial x}
+    + \frac{\partial A_y}{\partial y} + \frac{\partial A_z}{\partial z}}
+  \]
+  \textbf{Interprétation physique :}
+  \begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item $\mathrm{div}\,\vec{A} > 0$ : \textbf{source} (flux sortant)
+    \item $\mathrm{div}\,\vec{A} < 0$ : \textbf{puits} (flux entrant)
+    \item $\mathrm{div}\,\vec{A} = 0$ : champ \textbf{solénoïdal} (lignes fermées)
+  \end{itemize}
+\end{formulabox}
+
+\begin{formulabox}[lavender]{Rotationnel d'un vecteur}
+  \[
+    \vec{\nabla}\wedge\vec{A} = \begin{vmatrix}
+      \vec{e}_x & \vec{e}_y & \vec{e}_z \\
+      \partial_x & \partial_y & \partial_z \\
+      A_x & A_y & A_z
+    \end{vmatrix}
+  \]
+  \[
+    = \left(\frac{\partial A_z}{\partial y}-\frac{\partial A_y}{\partial z}\right)\vec{e}_x
+    + \left(\frac{\partial A_x}{\partial z}-\frac{\partial A_z}{\partial x}\right)\vec{e}_y
+    + \left(\frac{\partial A_y}{\partial x}-\frac{\partial A_x}{\partial y}\right)\vec{e}_z
+  \]
+  \textbf{Sens physique :} mesure la \emph{circulation locale} du champ autour d'un point. $\mathrm{rot}\,\vec{A} \neq \vec{0}$ $\Rightarrow$ champ \textbf{tourbillonnaire}.
+\end{formulabox}
+
+\end{multicols}
+
+\begin{formulabox}[orange]{Laplacien scalaire et vectoriel}
+  \begin{multicols}{2}
+  \textbf{Laplacien scalaire} ($f \mapsto \mathbb{R}$) :
+  \[
+    \boxed{\Delta f = \vec{\nabla}^2 f = \frac{\partial^2 f}{\partial x^2}
+    + \frac{\partial^2 f}{\partial y^2} + \frac{\partial^2 f}{\partial z^2}}
+  \]
+  \columnbreak
+  \textbf{Laplacien vectoriel} ($\vec{A} \mapsto \mathbb{R}^3$) :
+  \[
+    \Delta\vec{A} = \Delta A_x\,\vec{e}_x + \Delta A_y\,\vec{e}_y + \Delta A_z\,\vec{e}_z
+  \]
+  (en cartésien uniquement : composante par composante)
+  \end{multicols}
+  Si $\Delta f = 0$, on dit que $f$ est \textbf{harmonique} (équation de Laplace).
+\end{formulabox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{B — Identités Vectorielles Fondamentales}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{tcolorbox}[enhanced, breakable, colframe=magenta!55!black, colback=magenta!6!white,
+  arc=4pt, boxrule=0.6pt,
+  title={\color{white}\bfseries\small Identités clés à connaître absolument},
+  attach boxed title to top left={yshift=-2mm, xshift=5mm},
+  boxed title style={colback=magenta!75!black, colframe=magenta!75!black,
+    arc=3pt, boxrule=0pt, left=5pt, right=5pt, top=2pt, bottom=2pt},
+  before skip=8pt, after skip=8pt, left=7pt, right=7pt, top=9pt, bottom=7pt]
+  \begin{multicols}{2}
+  \textbf{\color{crimson}Nullités :}
+  \[
+    \vec{\nabla}\wedge(\vec{\nabla}f) = \vec{0} \quad \forall f
+  \]
+  \[
+    \vec{\nabla}\cdot(\vec{\nabla}\wedge\vec{A}) = 0 \quad \forall \vec{A}
+  \]
+  \columnbreak
+  \textbf{\color{royalblue}Identité fondamentale :}
+  \[
+    \vec{\nabla}\wedge(\vec{\nabla}\wedge\vec{A}) = \vec{\nabla}(\vec{\nabla}\cdot\vec{A}) - \Delta\vec{A}
+  \]
+  \end{multicols}
+  \textbf{\color{emerald}Règles de Leibniz (produit) :}
+  \begin{multicols}{3}
+    $\vec{\nabla}(fg) = f\vec{\nabla}g + g\vec{\nabla}f$\\[3pt]
+    $\vec{\nabla}\cdot(f\vec{A}) = f\,\mathrm{div}\vec{A} + \vec{A}\cdot\vec{\nabla}f$\\[3pt]
+    $\vec{\nabla}\wedge(f\vec{A}) = \vec{\nabla}f\wedge\vec{A} + f\,\mathrm{rot}\vec{A}$
+  \end{multicols}
+  \begin{multicols}{2}
+    $\vec{\nabla}\cdot(\vec{A}\wedge\vec{B}) = \vec{B}\cdot\mathrm{rot}\vec{A} - \vec{A}\cdot\mathrm{rot}\vec{B}$\\[3pt]
+    $\vec{\nabla}\wedge(\vec{A}\wedge\vec{B}) = \vec{A}\,\mathrm{div}\vec{B} - \vec{B}\,\mathrm{div}\vec{A} + (\vec{B}\cdot\vec{\nabla})\vec{A} - (\vec{A}\cdot\vec{\nabla})\vec{B}$
+  \end{multicols}
+\end{tcolorbox}
+
+\begin{multicols}{2}
+
+\begin{defbox}[royalblue]{Champ conservatif (irrotationnel)}
+  $\vec{A}$ est \textbf{conservatif} si et seulement si :
+  \[
+    \mathrm{rot}\,\vec{A} = \vec{0}
+    \;\Leftrightarrow\;
+    \exists\, V \text{ tel que } \vec{A} = -\vec{\nabla}V
+  \]
+  $V$ est le \textbf{potentiel scalaire} associé. La circulation de $\vec{A}$ sur tout contour fermé est nulle : $\oint \vec{A}\cdot d\vec{l} = 0$.
+\end{defbox}
+
+\begin{defbox}[teal]{Champ solénoïdal}
+  $\vec{A}$ est \textbf{solénoïdal} si et seulement si :
+  \[
+    \mathrm{div}\,\vec{A} = 0
+    \;\Leftrightarrow\;
+    \exists\, \vec{C} \text{ tel que } \vec{A} = \mathrm{rot}\,\vec{C}
+  \]
+  $\vec{C}$ est le \textbf{potentiel vecteur} associé. Le flux de $\vec{A}$ à travers toute surface fermée est nul.
+\end{defbox}
+
+\end{multicols}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{C — Théorèmes Intégraux}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{multicols}{2}
+
+\begin{thmbox}{Théorème de Stokes}
+  Relie la \textbf{circulation} d'un champ sur un contour $\mathcal{C}$ au flux de son rotationnel sur toute surface $\mathcal{S}$ s'appuyant sur $\mathcal{C}$ :
+  \[
+    \boxed{\oint_{\mathcal{C}} \vec{A}\cdot d\vec{l} = \iint_{\mathcal{S}} \mathrm{rot}\,\vec{A}\cdot d\vec{S}}
+  \]
+  \textbf{Convention :} le sens de $\mathcal{C}$ et l'orientation de $d\vec{S}$ sont liés par la \emph{règle du tire-bouchon} (ou de la main droite).\\[2pt]
+  \textbf{Forme locale} (si $\mathcal{S}$ contractée en un point) : on retrouve la définition du rotationnel.
+\end{thmbox}
+
+\begin{thmbox}{Théorème de Green-Ostrogradsky}
+  Relie le \textbf{flux} d'un champ à travers une surface \emph{fermée} $\mathcal{S}$ au volume $\mathcal{V}$ qu'elle délimite :
+  \[
+    \boxed{\oiint_{\mathcal{S}} \vec{A}\cdot d\vec{S} = \iiint_{\mathcal{V}} \mathrm{div}\,\vec{A}\,d\tau}
+  \]
+  \textbf{Convention :} $d\vec{S}$ orienté vers \emph{l'extérieur} du volume $\mathcal{V}$.\\[2pt]
+  \textbf{Forme locale :} en contractant le volume, on retrouve la définition de la divergence.
+\end{thmbox}
+
+\end{multicols}
+
+\begin{tipbox}
+  \begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Stokes} est utile pour passer des formes intégrales aux formes locales (Maxwell-Faraday, Ampère).
+    \item \textbf{Green-Ostrogradsky} est utile pour l'équation de continuité et Maxwell-Gauss.
+    \item Les deux théorèmes permettent de prouver les identités $\mathrm{rot}(\vec{\nabla}f)=\vec{0}$ et $\mathrm{div}(\mathrm{rot}\,\vec{A})=0$.
+    \item \textbf{Théorème fondamental du gradient} : $\int_A^B \vec{\nabla}f\cdot d\vec{l} = f(B)-f(A)$ (indépendant du chemin si $f$ est régulière).
+  \end{itemize}
+\end{tipbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{D — Milieu Conducteur \& Courant Électrique}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{multicols}{2}
+
+\begin{defbox}[royalblue]{Densité de courant volumique $\vec{j}$}
+  Dans un conducteur, les porteurs (électrons) de charge $q_e = -e = -1{,}6\times10^{-19}$ C se déplacent à la vitesse $\vec{v}$. La densité volumique de courant est :
+  \[
+    \boxed{\vec{j} = \rho_m \vec{v} = -ne\vec{v}}
+  \]
+  avec $n$ le nombre d'électrons par unité de volume et $\rho_m = -ne$ la densité de charges mobiles.\\[4pt]
+  \textbf{Intensité} à travers une surface $\mathcal{S}$ :
+  \[
+    I = \iint_{\mathcal{S}} \vec{j}\cdot d\vec{S} = \frac{dQ}{dt}
+  \]
+  Le sens conventionnel du courant est \textbf{opposé} au déplacement des électrons.
+\end{defbox}
+
+\begin{defbox}[teal]{Courant surfacique $\vec{j}_s$}
+  Pour une nappe de courant (distribution surfacique), on définit :
+  \[
+    \vec{j}_s = \rho_s \vec{v}
+  \]
+  L'intensité linéique est : $dI = \vec{j}_s\cdot\vec{n}\,dl$, et le courant total enlacé par un contour $\mathcal{C}$ :
+  \[
+    I = \oint_{\mathcal{C}} \vec{j}_s\cdot\vec{n}\,dl
+  \]
+  Unité : A/m (ampères par mètre). C'est la limite d'un volume de courant infiniment mince.
+\end{defbox}
+
+\end{multicols}
+
+\begin{thmbox}[crimson]{Équation de Continuité — Conservation de la Charge}
+  La charge électrique est une \textbf{grandeur conservative}. La loi fondamentale est :
+  \[
+    \boxed{\mathrm{div}\,\vec{j} + \frac{\partial \rho}{\partial t} = 0}
+    \qquad\text{(forme locale)}
+  \]
+  \[
+    \oiint_{\mathcal{S}} \vec{j}\cdot d\vec{S} = -\frac{d}{dt}\iiint_{\mathcal{V}} \rho\,d\tau
+    \qquad\text{(forme intégrale)}
+  \]
+  \textbf{En régime permanent} ($\partial \rho / \partial t = 0$) : $\mathrm{div}\,\vec{j} = 0 \Rightarrow \vec{j}$ est à flux conservatif $\Rightarrow$ \textbf{loi des nœuds} : $\sum I_k = 0$.
+\end{thmbox}
+
+\begin{multicols}{2}
+
+\begin{defbox}[orange]{Modèle de Drude — Loi d'Ohm locale}
+  Un électron dans le conducteur obéit à :
+  \[
+    m\frac{d\vec{v}}{dt} = -e\vec{E} - \frac{m}{\tau}\vec{v}
+  \]
+  ($\tau$ = temps de relaxation entre deux collisions, typiquement $\sim 10^{-14}$ s dans les métaux.)\\[4pt]
+  En \textbf{régime permanent} ($d\vec{v}/dt = 0$) :
+  \[
+    \vec{v} = -\frac{e\tau}{m}\vec{E}
+    \quad\Rightarrow\quad
+    \boxed{\vec{j} = \gamma\vec{E}}
+  \]
+  avec la \textbf{conductivité} :
+  \[
+    \gamma = \frac{ne^2\tau}{m} \quad [\mathrm{S\,m^{-1}}]
+  \]
+  et la \textbf{résistivité} $\rho_r = 1/\gamma$ $[\Omega\,\mathrm{m}]$.
+\end{defbox}
+
+\begin{defbox}[emerald]{Loi d'Ohm intégrale \& Résistance}
+  Pour un conducteur cylindrique (longueur $\ell$, section $S$, conductivité $\gamma$) :
+  \[
+    \boxed{U = V_A - V_B = RI}
+    \quad\text{avec}\quad
+    \boxed{R = \rho_r\frac{\ell}{S} = \frac{\ell}{\gamma S}}
+  \]
+  \textbf{Puissance dissipée par effet Joule :}
+  \[
+    P = RI^2 = UI = \iiint \vec{j}\cdot\vec{E}\,d\tau
+  \]
+  La densité volumique de puissance est $p = \vec{j}\cdot\vec{E} = \gamma E^2$.\\[3pt]
+  \textbf{En régime stationnaire}, dans un conducteur ohmique : $\rho_f + \rho_m = 0$ (quasi-neutralité).
+\end{defbox}
+
+\end{multicols}
+
+\begin{exbox}{Exemple — Fil cylindrique}
+  Fil de cuivre de longueur $\ell = 1\,\mathrm{m}$, rayon $a = 1\,\mathrm{mm}$, conductivité $\gamma_{\mathrm{Cu}} = 5{,}9\times10^7\,\mathrm{S/m}$.
+  \[
+    R = \frac{\ell}{\gamma\pi a^2} = \frac{1}{5{,}9\times10^7 \times \pi \times 10^{-6}} \approx 5{,}4\,\mathrm{m\Omega}
+  \]
+  Pour $I = 1\,\mathrm{A}$ : $U = RI \approx 5{,}4\,\mathrm{mV}$ et $P = RI^2 \approx 5{,}4\,\mathrm{mW}$.\\
+  Vitesse de dérive des électrons : $v = j/(ne) \approx 10^{-4}\,\mathrm{m/s}$ (très faible !).
+\end{exbox}
+
+\begin{tipbox}
+  \begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Le courant conventionnel $I$ va du $+$ vers le $-$ à l'extérieur du générateur, les électrons vont en sens inverse.
+    \item $\vec{j} = \gamma\vec{E}$ est \textbf{locale} : valable point par point, même si le conducteur n'est pas cylindrique.
+    \item La quasi-neutralité ($\rho_f + \rho_m \approx 0$) est fondamentale en régime stationnaire : il n'y a pas de charge volumique nette dans le conducteur.
+    \item Le temps de relaxation $\tau$ caractérise les collisions électrons/réseau. Plus $\tau$ est grand, meilleur est le conducteur.
+  \end{itemize}
+\end{tipbox}
+
+\vspace{6pt}
+
+% ─── Synthesis Table Ch1 ─────────────────────────────────────────────────────
+\begin{tcolorbox}[enhanced, colframe=deepnavy!40, colback=lightgray,
+  arc=4pt, boxrule=0.5pt, left=4pt, right=4pt, top=6pt, bottom=6pt]
+  \centering\small\bfseries Tableau récapitulatif — Chapitre I
+  \vspace{4pt}
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabularx}{\linewidth}{
+    >{\bfseries\color{deepnavy}}p{3.2cm}
+    >{\centering\arraybackslash}p{4.5cm}
+    >{\color{slate}}X
+  }
+  \toprule
+  \rowcolor{deepnavy}
+  \color{white}Opérateur & \color{white}Formule & \color{white}Nature / Résultat \\
+  \midrule
+  \rowcolor{lightblue!80}
+  Gradient & $\vec{\nabla}f$ & vecteur $\perp$ surfaces de niveau \\
+  Divergence & $\vec{\nabla}\cdot\vec{A}$ & scalaire — sources/puits \\
+  \rowcolor{lightblue!80}
+  Rotationnel & $\vec{\nabla}\wedge\vec{A}$ & vecteur — circulation locale \\
+  Laplacien scalaire & $\Delta f = \vec{\nabla}\cdot(\vec{\nabla}f)$ & scalaire \\
+  \rowcolor{lightblue!80}
+  $\mathrm{rot}(\mathrm{grad}\,f)$ & $\vec{0}$ & toujours nul \\
+  $\mathrm{div}(\mathrm{rot}\,\vec{A})$ & $0$ & toujours nul \\
+  \rowcolor{lightblue!80}
+  Stokes & $\oint\vec{A}\cdot d\vec{l} = \iint\mathrm{rot}\vec{A}\cdot d\vec{S}$ & circ. $\leftrightarrow$ flux rot \\
+  Green-Ostrogradski & $\oiint\vec{A}\cdot d\vec{S} = \iiint\mathrm{div}\vec{A}\,d\tau$ & flux $\leftrightarrow$ vol. div \\
+  \rowcolor{lightblue!80}
+  Continuité & $\mathrm{div}\,\vec{j} + \partial\rho/\partial t = 0$ & conservation charge \\
+  Ohm locale & $\vec{j} = \gamma\vec{E}$ & conducteur linéaire \\
+  \rowcolor{lightblue!80}
+  Résistance & $R = \rho_r\ell/S$ & géométrie + matériau \\
+  Joule & $P = \iiint \vec{j}\cdot\vec{E}\,d\tau = RI^2$ & dissipation thermique \\
+  \bottomrule
+  \end{tabularx}
+\end{tcolorbox}
+
+\newpage
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Chapitre II — Magnétostatique dans le Vide}
+% ══════════════════════════════════════════════════════════════════════════════
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{A — Loi de Biot et Savart}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{multicols}{2}
+
+\begin{thmbox}[royalblue]{Loi de Biot-Savart (filaire)}
+  Le champ magnétique élémentaire $d\vB$ créé au point $M$ par un élément de courant $Id\vec{l}$ situé en $P$ est :
+  \[
+    \boxed{d\vB(M) = \frac{\mu_0}{4\pi}\frac{I\,d\vec{l}\wedge\overrightarrow{PM}}{PM^3}}
+  \]
+  Par superposition, le champ total d'un circuit $\mathcal{C}$ :
+  \[
+    \vB(M) = \frac{\mu_0 I}{4\pi}\int_{\mathcal{C}}\frac{d\vec{l}\wedge\overrightarrow{PM}}{PM^3}
+  \]
+  \textbf{Constante fondamentale :}
+  \[
+    \mu_0 = 4\pi\times10^{-7}\,\mathrm{H/m}
+  \]
+  (perméabilité magnétique du vide).
+\end{thmbox}
+
+\begin{defbox}[teal]{Généralisations à d'autres distributions}
+  \textbf{Distribution volumique} ($\vj$ en A/m²) :
+  \[
+    d\vB(M) = \frac{\mu_0}{4\pi}\frac{\vj\,d\tau\wedge\overrightarrow{PM}}{PM^3}
+  \]
+  \textbf{Distribution surfacique} ($\vec{j}_s$ en A/m) :
+  \[
+    d\vB(M) = \frac{\mu_0}{4\pi}\frac{\vec{j}_s\,dS\wedge\overrightarrow{PM}}{PM^3}
+  \]
+  \textbf{Champ total} dans tous les cas : on intègre sur la distribution (principe de superposition).
+\end{defbox}
+
+\end{multicols}
+
+\begin{exbox}{Exemples canoniques — Champs en régime magnétostatique}
+  \begin{multicols}{2}
+  \textbf{Fil infini} (distance $r$) :
+  \[
+    \boxed{B = \frac{\mu_0 I}{2\pi r}}
+  \]
+  Direction : orthoradiale (règle main droite), $\vec{e}_\theta$.\\[4pt]
+  \textbf{Arc de cercle} de rayon $R$, angle $\alpha$ :
+  \[
+    B_{\mathrm{axe}} = \frac{\mu_0 I\alpha}{4\pi R}
+    \;\Rightarrow\;
+    \text{spire complète} : B = \frac{\mu_0 I}{2R}
+  \]
+  \columnbreak
+  \textbf{Solénoïde infini} ($n$ spires/m, courant $I$) :
+  \[
+    \boxed{B_{\mathrm{int}} = \mu_0 n I}, \quad B_{\mathrm{ext}} = 0
+  \]
+  Direction : axiale.\\[4pt]
+  \textbf{Fil cylindrique plein} (rayon $a$, densité uniforme $j$) :
+  \[
+    r < a\;:\; B = \frac{\mu_0 j r}{2} \propto r
+    \quad
+    r > a\;:\; B = \frac{\mu_0 I}{2\pi r} \propto \frac{1}{r}
+  \]
+  \end{multicols}
+\end{exbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{B — Propriétés Fondamentales du Champ $\vB$}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{multicols}{2}
+
+\begin{thmbox}[crimson]{Maxwell-flux (div B = 0)}
+  \[
+    \boxed{\mathrm{div}\,\vB = 0} \qquad \text{(toujours, partout)}
+  \]
+  \[
+    \oiint_{\mathcal{S}_{\mathrm{fermée}}} \vB\cdot d\vec{S} = 0
+  \]
+  \textbf{Conséquences majeures :}
+  \begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item $\vB$ est \textbf{solénoïdal} : ses lignes de champ sont toujours \textbf{fermées}
+    \item Il n'existe \textbf{pas de monopôle magnétique}
+    \item Il existe un \textbf{potentiel vecteur} $\vA$ tel que $\vB = \mathrm{rot}\,\vA$
+  \end{itemize}
+\end{thmbox}
+
+\begin{thmbox}[lavender]{Maxwell-Ampère (magnétostatique)}
+  En magnétostatique (régime permanent, $\partial/\partial t = 0$) :
+  \[
+    \boxed{\mathrm{rot}\,\vB = \mu_0\,\vj} \qquad\text{(forme locale)}
+  \]
+  \[
+    \boxed{\oint_{\mathcal{C}} \vB\cdot d\vec{l} = \mu_0\,I_{\mathrm{enlacé}}}
+    \;\text{(forme intégrale)}
+  \]
+  où $I_{\mathrm{enlacé}} = \iint_{\mathcal{S}} \vj\cdot d\vec{S}$ est le courant \textbf{algébrique} traversant toute surface s'appuyant sur $\mathcal{C}$.\\[3pt]
+  \textbf{Signe :} règle du tire-bouchon entre $\mathcal{C}$ et l'orientation de $d\vec{S}$.
+\end{thmbox}
+
+\end{multicols}
+
+\begin{defbox}[orange]{Potentiel Vecteur $\vA$}
+  Puisque $\mathrm{div}\,\vB = 0$, il existe $\vA$ tel que :
+  \[
+    \vB = \mathrm{rot}\,\vA
+  \]
+  $\vA$ n'est \textbf{pas unique} : on peut ajouter le gradient d'une fonction quelconque (\textbf{liberté de jauge}).\\[4pt]
+  \textbf{Jauge de Coulomb :} on impose $\mathrm{div}\,\vA = 0$, ce qui donne en magnétostatique l'équation de \textbf{Poisson vectorielle} :
+  \[
+    \Delta\vA = -\mu_0\vj
+    \quad\Rightarrow\quad
+    \vA(M) = \frac{\mu_0}{4\pi}\iiint\frac{\vj(P)}{PM}\,d\tau
+  \]
+  \textbf{Lien flux-circulation :} $\Phi_{\mathcal{S}} = \iint\vB\cdot d\vec{S} = \oint_{\partial\mathcal{S}}\vA\cdot d\vec{l}$ (par Stokes).
+\end{defbox}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{C — Méthode d'Ampère : Symétries \& Invariances}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{tcolorbox}[enhanced, breakable, colframe=magenta!55!black, colback=magenta!6!white,
+  arc=4pt, boxrule=0.6pt,
+  title={\color{white}\bfseries\small Utilisation du Théorème d'Ampère — Méthode systématique},
+  attach boxed title to top left={yshift=-2mm, xshift=5mm},
+  boxed title style={colback=magenta!75!black, colframe=magenta!75!black,
+    arc=3pt, boxrule=0pt, left=5pt, right=5pt, top=2pt, bottom=2pt},
+  before skip=8pt, after skip=8pt, left=7pt, right=7pt, top=9pt, bottom=7pt]
+  \textbf{Étape 1 — Déterminer la direction de $\vB$ par les symétries :}
+  \begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Plan de symétrie} pour la distribution de courant : $\vB(M)\perp$ ce plan (si $M$ est dans le plan)
+    \item \textbf{Plan d'antisymétrie} pour la distribution : $\vB(M)$ est \textbf{contenu} dans ce plan
+    \item Intersection des contraintes $\Rightarrow$ direction unique de $\vB$ (souvent $\vec{e}_r$, $\vec{e}_\theta$ ou $\vec{e}_z$)
+  \end{itemize}
+  \textbf{Étape 2 — Déterminer les dépendances de $\|\vB\|$ par les invariances :}
+  \begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Invariance par translation selon un axe $\Rightarrow$ $\vB$ ne dépend pas de cette coordonnée
+    \item Invariance par rotation d'axe $z$ $\Rightarrow$ $\vB = B(r)\,\vec{e}_\theta$ ou $\vB = B(r)\,\vec{e}_z$
+  \end{itemize}
+  \textbf{Étape 3 — Choisir le contour d'Ampère adapté :}
+  \begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Cercle coaxial} si symétrie cylindrique : $\vB$ constant et tangent $\Rightarrow$ $\oint\vB\cdot d\vec{l} = B\cdot 2\pi r$
+    \item \textbf{Rectangle} si symétrie plane : $\oint\vB\cdot d\vec{l} = B\cdot L$ (sur la partie utile)
+  \end{itemize}
+  \textbf{Étape 4 — Appliquer} $\oint\vB\cdot d\vec{l} = \mu_0 I_{\mathrm{enlacé}}$ et calculer $I_{\mathrm{enlacé}} = \vj\cdot\pi r^2$ ou $= nI$ selon la géométrie.
+\end{tcolorbox}
+
+\begin{multicols}{2}
+
+\begin{exbox}[gold]{Fil infini par Ampère}
+  Distribution de courant : fil infini selon $z$, courant $I$.\\
+  \textbf{Symétrie :} plan $(\vec{e}_r, \vec{e}_z)$ est plan d'antisymétrie $\Rightarrow$ $\vB = B(r)\vec{e}_\theta$.\\
+  \textbf{Invariances :} selon $z$ et $\theta$ $\Rightarrow$ $B = B(r)$ seulement.\\
+  \textbf{Contour :} cercle de rayon $r$, $\oint\vB\cdot d\vec{l} = B\cdot 2\pi r$.\\
+  \textbf{Résultat :}
+  \[
+    B\cdot 2\pi r = \mu_0 I
+    \quad\Rightarrow\quad
+    \vB = \frac{\mu_0 I}{2\pi r}\vec{e}_\theta
+  \]
+\end{exbox}
+
+\begin{exbox}[gold]{Solénoïde infini par Ampère}
+  $n$ spires/m, courant $I$, axe $z$.\\
+  \textbf{Symétrie :} $\vB = B(r)\vec{e}_z$ (invariance par rotation + plan de symétrie).\\
+  \textbf{Contour rectangulaire :} un côté intérieur $\ell$, un côté extérieur $\ell$.\\
+  $\oint\vB\cdot d\vec{l} = B_{\mathrm{int}}\ell - B_{\mathrm{ext}}\ell = \mu_0 n\ell I$.\\
+  Avec $B_{\mathrm{ext}} = 0$ (par symétrie et champ lointain) :
+  \[
+    \boxed{B_{\mathrm{int}} = \mu_0 n I}
+  \]
+\end{exbox}
+
+\end{multicols}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{D — Conditions de Passage à l'Interface}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{thmbox}[teal]{Conditions de raccordement pour $\vB$}
+  À l'interface entre deux milieux (ou de part et d'autre d'une nappe de courant $\vec{j}_s$) :
+  \begin{multicols}{2}
+  \textbf{Composante normale :}
+  \[
+    \boxed{B_{1n} = B_{2n}} \quad\text{(continue)}
+  \]
+  Découle de $\mathrm{div}\,\vB = 0$ et de Green-Ostrogradsky appliqué à une "boîte à chapeau".\\[3pt]
+  \columnbreak
+  \textbf{Composante tangentielle :}
+  \[
+    \boxed{\vB_{2t} - \vB_{1t} = \mu_0\,\vec{j}_s\wedge\hat{n}_{12}}
+  \]
+  En l'absence de courant surfacique : $\vB_t$ est continue. Découle de $\mathrm{rot}\,\vB = \mu_0\vj$ et Stokes sur un rectangle infiniment plat.
+  \end{multicols}
+\end{thmbox}
+
+\begin{multicols}{2}
+
+\begin{warnbox}{Attention — Magnétostatique vs. Maxwell complet}
+  La relation $\mathrm{rot}\,\vB = \mu_0\vj$ est la version \textbf{magnétostatique} (régime permanent). En régime variable (Maxwell-Ampère), on ajoute le \textbf{courant de déplacement} :
+  \[
+    \mathrm{rot}\,\vB = \mu_0\vj + \mu_0\varepsilon_0\frac{\partial\vE}{\partial t}
+  \]
+  En magnétostatique : $\partial\vE/\partial t = 0$, donc le terme additionnel est nul.
+\end{warnbox}
+
+\begin{tipbox}
+  \begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Pour utiliser Biot-Savart : décomposer le circuit en éléments simples (demi-droites, arcs) et superposer.
+    \item Pour utiliser Ampère : \textbf{d'abord} les symétries, \textbf{ensuite} le contour, \textbf{enfin} le calcul. Ne jamais choisir le contour avant d'avoir $\vB$ en direction.
+    \item La jauge de Coulomb $(\mathrm{div}\,\vA = 0)$ est standard en magnétostatique.
+  \end{itemize}
+\end{tipbox}
+
+\end{multicols}
+
+% ─────────────────────────────────────────────────────────────────────────────
+\subsection{E — Force de Laplace \& Énergie Magnétique}
+% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{thmbox}[royalblue]{Force de Lorentz et de Laplace}
+  \textbf{Force de Lorentz} sur une charge $q$ animée de $\vec{v}$ :
+  \[
+    \vF = q(\vE + \vec{v}\wedge\vB)
+  \]
+  \textbf{Force de Laplace} sur un conducteur (porteurs de charge $\rho_m$ à vitesse $\vec{v}$, c'est-à-dire densité $\vj = \rho_m\vec{v}$) :
+  \begin{multicols}{3}
+    \centering
+    \textbf{Volume :}\\
+    $d\vF = (\vj\wedge\vB)\,d\tau$\\[3pt]
+    \textbf{Surface :}\\
+    $d\vF = (\vec{j}_s\wedge\vB)\,dS$\\[3pt]
+    \textbf{Filaire :}\\
+    $d\vF = I\,d\vec{l}\wedge\vB$
+  \end{multicols}
+  Force totale : $\vF_L = \iiint(\vj\wedge\vB)\,d\tau$. Moment en $O$ : $\mathcal{M}_O = \iiint\overrightarrow{OM}\wedge(\vj\wedge\vB)\,d\tau$.
+\end{thmbox}
+
+\begin{multicols}{2}
+
+\begin{exbox}[gold]{Force entre deux fils parallèles}
+  Deux fils infinis parallèles distants de $d$, parcourus par $I_1$ et $I_2$ :
+  \[
+    \boxed{\frac{F}{\ell} = \frac{\mu_0 I_1 I_2}{2\pi d}}
+  \]
+  \begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item Courants \textbf{même sens} : force \textbf{attractive}
+    \item Courants \textbf{opposés} : force \textbf{répulsive}
+  \end{itemize}
+  \textit{C'est cette propriété qui définissait l'ampère (avant 2019).}
+\end{exbox}
+
+\begin{formulabox}[lavender]{Moment dipolaire magnétique}
+  Pour une spire plane de surface $S$ parcourue par $I$ :
+  \[
+    \boxed{\vec{m} = IS\,\hat{n}} \quad [\mathrm{A\cdot m^2}]
+  \]
+  ($\hat{n}$ : normale orientée par la règle du tire-bouchon)\\[4pt]
+  Dans un champ \textbf{uniforme} $\vB$ :
+  \begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item Force résultante : $\vF = \vec{0}$
+    \item Couple : $\vec{\Gamma} = \vec{m}\wedge\vB$
+    \item Énergie potentielle : $E_p = -\vec{m}\cdot\vB$
+  \end{itemize}
+  Équilibre stable : $\vec{m} \parallel \vB$ ($E_p$ minimale $\Leftrightarrow$ $\Phi$ maximal).
+\end{formulabox}
+
+\end{multicols}
+
+\begin{formulabox}[orange]{Travail des forces de Laplace — Théorème de Maxwell}
+  Lors d'un déplacement d'un circuit rigide \textbf{parcouru par un courant constant} $I$, le travail élémentaire des forces de Laplace est :
+  \[
+    \boxed{dW = I\,d\Phi_c}
+  \]
+  où $d\Phi_c = d\Phi_{\mathrm{final}} - d\Phi_{\mathrm{initial}}$ est le \textbf{flux coupé} (variation du flux magnétique à travers le circuit lors du déplacement).\\[4pt]
+  \textbf{Règle du flux maximal :} Un circuit parcouru par un courant constant tend à se déplacer de façon à \textbf{maximiser le flux} qui le traverse ($E_p = -I\Phi$ est minimale). La force de Laplace est \textbf{conservative}.\\[4pt]
+  \textbf{Translation} : $F = I\dfrac{d\Phi}{dl}$ \qquad\textbf{Rotation} : $M = I\dfrac{d\Phi}{d\theta}$
+\end{formulabox}
+
+\begin{tipbox}
+  \begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Les forces de Laplace s'appliquent sur le conducteur via la réaction du réseau sur les porteurs mobiles.
+    \item Dans un champ \textbf{uniforme}, la force résultante sur tout circuit fermé est nulle. Il ne reste qu'un couple.
+    \item Le flux coupé = variation du flux = $\Phi_{\mathrm{f}} - \Phi_{\mathrm{i}}$ (démontré par conservation du flux à travers une surface fermée).
+    \item Pour calculer une force : $F = I\partial\Phi/\partial x$ (à $I = \mathrm{cst}$) ou $F = -\partial E_p/\partial x$.
+  \end{itemize}
+\end{tipbox}
+
+\vspace{6pt}
+
+% ─── Synthesis Table Ch2 ─────────────────────────────────────────────────────
+\begin{tcolorbox}[enhanced, colframe=deepnavy!40, colback=lightgray,
+  arc=4pt, boxrule=0.5pt, left=4pt, right=4pt, top=6pt, bottom=6pt]
+  \centering\small\bfseries Tableau récapitulatif — Chapitre II : Magnétostatique
+  \vspace{4pt}
+  \renewcommand{\arraystretch}{1.4}
+  \begin{tabularx}{\linewidth}{
+    >{\bfseries\color{deepnavy}}p{3.8cm}
+    >{\centering\arraybackslash}p{5.2cm}
+    >{\color{slate}\itshape}X
+  }
+  \toprule
+  \rowcolor{deepnavy}
+  \color{white}Résultat & \color{white}Formule & \color{white}Contexte \\
+  \midrule
+  \rowcolor{lightblue!80}
+  Biot-Savart (filaire) & $d\vB = \frac{\mu_0}{4\pi}\frac{I\,d\vec{l}\wedge\hat{r}}{r^2}$ & Toute géométrie \\
+  Fil infini & $B = \frac{\mu_0 I}{2\pi r}$, direction $\vec{e}_\theta$ & Symétrie cylindrique \\
+  \rowcolor{lightblue!80}
+  Solénoïde infini & $B_{\mathrm{int}} = \mu_0 nI$, $B_{\mathrm{ext}} = 0$ & Ampère, rect. \\
+  Fil cylindrique plein ($r<a$) & $B = \frac{\mu_0 j r}{2}$ & Ampère, cercle \\
+  \rowcolor{lightblue!80}
+  Maxwell-flux & $\mathrm{div}\,\vB = 0$ & Toujours valable \\
+  Ampère (magnétostatique) & $\mathrm{rot}\,\vB = \mu_0\vj$ & Régime permanent \\
+  \rowcolor{lightblue!80}
+  Potentiel vecteur & $\vB = \mathrm{rot}\,\vA$, jauge : $\mathrm{div}\,\vA = 0$ & Coulomb \\
+  Continuité $B_n$ & $B_{1n} = B_{2n}$ & Interface \\
+  \rowcolor{lightblue!80}
+  Saut $B_t$ & $\Delta\vB_t = \mu_0\vec{j}_s\wedge\hat{n}$ & Nappe courant \\
+  Laplace (filaire) & $d\vF = Id\vec{l}\wedge\vB$ & Conducteur dans $\vB$ ext. \\
+  \rowcolor{lightblue!80}
+  Moment magnétique & $\vec{m} = IS\hat{n}$ & Spire / dipôle \\
+  Couple dipolaire & $\vec{\Gamma} = \vec{m}\wedge\vB$ & Champ uniforme \\
+  \rowcolor{lightblue!80}
+  Énergie dipolaire & $E_p = -\vec{m}\cdot\vB$ & Stable si $\vec{m}\parallel\vB$ \\
+  Travail Laplace & $dW = I\,d\Phi$ & Courant constant \\
+  \rowcolor{lightblue!80}
+  Force 2 fils & $F/\ell = \frac{\mu_0 I_1 I_2}{2\pi d}$ & Attraction/répulsion \\
+  \bottomrule
+  \end{tabularx}
+\end{tcolorbox}
+
+\vspace{8pt}
+
+% ─── Final Strategy Box ──────────────────────────────────────────────────────
+\begin{tcolorbox}[
+  enhanced, colframe=gold!60!black, colback=gold!10!white,
+  arc=5pt, boxrule=0.7pt,
+  title={\color{white}\bfseries\small $\bigstar$ Feuille de route — Comment aborder un problème de magnétostatique},
+  attach boxed title to top left={yshift=-2mm, xshift=5mm},
+  boxed title style={colback=gold!80!black, colframe=gold!80!black,
+    arc=3pt, boxrule=0pt, left=5pt, right=5pt, top=2pt, bottom=2pt},
+  before skip=8pt, after skip=8pt, left=10pt, right=10pt, top=10pt, bottom=8pt
+]
+  \begin{enumerate}[leftmargin=*, itemsep=3pt, label=\textbf{\arabic{enumi}.}]
+    \item \textbf{Identifier la distribution :} linéique (fil), surfacique (nappe), volumique (bloc) ?
+    \item \textbf{Analyser les symétries :} plans de symétrie/antisymétrie $\Rightarrow$ direction de $\vB$.
+    \item \textbf{Analyser les invariances :} translation, rotation $\Rightarrow$ dépendances de $\|\vB\|$.
+    \item \textbf{Choisir la méthode} : Ampère (si symétrie suffisante) $\gg$ Biot-Savart (général).
+    \item \textbf{Choisir le contour d'Ampère} adapté (cercle, rectangle) et calculer $I_{\mathrm{enlacé}}$.
+    \item \textbf{Calculer les forces/couples} par Laplace, utiliser la règle du flux maximal si $I = \mathrm{cst}$.
+    \item \textbf{Vérifier} : $\mathrm{div}\,\vB = 0$ ? conditions de passage à l'interface vérifiées ?
+  \end{enumerate}
+\end{tcolorbox}
+
+\end{document}

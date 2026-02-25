@@ -1,0 +1,1137 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/nixos.org) (preloaded format=pdflatex 1980.1.1)  23 FEB 2026 23:26
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/home/nacreousdawn596/Documents/agora-buzzer/sht/electromagnetique.tex
+(/home/nacreousdawn596/Documents/agora-buzzer/sht/electromagnetique.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/base/article.cls
+Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
+(/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/base/size10.clo
+File: size10.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count196
+\c@section=\count197
+\c@subsection=\count198
+\c@subsubsection=\count199
+\c@paragraph=\count266
+\c@subparagraph=\count267
+\c@figure=\count268
+\c@table=\count269
+\abovecaptionskip=\skip49
+\belowcaptionskip=\skip50
+\bibindent=\dimen141
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/base/inputenc.sty
+Package: inputenc 2024/02/08 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/babel/babel.sty
+Package: babel 2025/02/14 v25.4 The multilingual framework for pdfLaTeX, LuaLaTeX and XeLaTeX
+\babel@savecnt=\count270
+\U@D=\dimen142
+\l@unhyphenated=\language90
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count271
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/babel/locale/fr/babel-french.tex)
+Package babel Info: Importing data for french
+(babel)             from babel-fr.ini. Reported on input line 4167.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/babel/locale/fr/babel-french.tex)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/microtype/microtype.sty
+Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count272
+)
+\MT@toks=\toks20
+\MT@tempbox=\box52
+\MT@count=\count273
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
+LaTeX Info: Redefining \leftprotrusion on input line 1088.
+\MT@prot@toks=\toks21
+LaTeX Info: Redefining \rightprotrusion on input line 1107.
+LaTeX Info: Redefining \textls on input line 1449.
+\MT@outer@kern=\dimen143
+LaTeX Info: Redefining \microtypecontext on input line 2053.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
+\MT@listname@count=\count274
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2025/02/11 v3.2a Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 944.
+LaTeX Info: Redefining \lslig on input line 944.
+\MT@outer@space=\skip51
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2025/02/11 v3.2a microtype main configuration file (RS)
+)
+LaTeX Info: Redefining \microtypesetup on input line 3065.
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/iftex/iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+\Gm@cnth=\count275
+\Gm@cntv=\count276
+\c@Gm@tempcnt=\count277
+\Gm@bindingoffset=\dimen144
+\Gm@wd@mp=\dimen145
+\Gm@odd@mp=\dimen146
+\Gm@even@mp=\dimen147
+\Gm@layoutwidth=\dimen148
+\Gm@layoutheight=\dimen149
+\Gm@layouthoffset=\dimen150
+\Gm@layoutvoffset=\dimen151
+\Gm@dimlist=\toks22
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2024/11/05 v2.17t AMS math features
+\@mathmargin=\skip52
+
+For additional information on amsmath, use the `?' option.
+(/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks23
+\ex@=\dimen152
+)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen153
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count278
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count279
+\leftroot@=\count280
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count281
+\DOTSCASE@=\count282
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box53
+\strutbox@=\box54
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen154
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count283
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count284
+\dotsspace@=\muskip17
+\c@parentequation=\count285
+\dspbrk@lvl=\count286
+\tag@help=\toks24
+\row@=\count287
+\column@=\count288
+\maxfields@=\count289
+\andhelp@=\toks25
+\eqnshift@=\dimen155
+\alignsep@=\dimen156
+\tagshift@=\dimen157
+\tagwidth@=\dimen158
+\totwidth@=\dimen159
+\lineht@=\dimen160
+\@envbody=\toks26
+\multlinegap=\skip53
+\multlinetaggap=\skip54
+\mathdisplay@stack=\toks27
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks28
+\thm@bodyfont=\toks29
+\thm@headfont=\toks30
+\thm@notefont=\toks31
+\thm@headpunct=\toks32
+\thm@preskip=\skip55
+\thm@postskip=\skip56
+\thm@headsep=\skip57
+\dth@everypar=\toks33
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2024/10/04 v1.31 mathematical typesetting tools
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tools/calc.sty
+Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count290
+\calc@Bcount=\count291
+\calc@Adimen=\dimen161
+\calc@Bdimen=\dimen162
+\calc@Askip=\skip58
+\calc@Bskip=\skip59
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count292
+\calc@Cskip=\skip60
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+\g_MT_multlinerow_int=\count293
+\l_MT_multwidth_dim=\dimen163
+\origjot=\skip61
+\l_MT_shortvdotswithinadjustabove_dim=\dimen164
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen165
+\l_MT_above_intertext_sep=\dimen166
+\l_MT_below_intertext_sep=\dimen167
+\l_MT_above_shortintertext_sep=\dimen168
+\l_MT_below_shortintertext_sep=\dimen169
+\xmathstrut@box=\box55
+\xmathstrut@dim=\dimen170
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
+Package xcolor Info: Model `RGB' extended on input line 1365.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/colortbl/colortbl.sty
+Package: colortbl 2024/07/06 v1.0i Color table columns (DPC)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tools/array.sty
+Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
+\col@sep=\dimen171
+\ar@mcellbox=\box56
+\extrarowheight=\dimen172
+\NC@list=\toks34
+\extratabsurround=\skip62
+\backup@length=\skip63
+\ar@cellbox=\box57
+)
+\everycr=\toks35
+\minrowclearance=\skip64
+\rownum=\count294
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
+\heavyrulewidth=\dimen173
+\lightrulewidth=\dimen174
+\cmidrulewidth=\dimen175
+\belowrulesep=\dimen176
+\belowbottomsep=\dimen177
+\aboverulesep=\dimen178
+\abovetopsep=\dimen179
+\cmidrulesep=\dimen180
+\cmidrulekern=\dimen181
+\defaultaddspace=\dimen182
+\@cmidla=\count295
+\@cmidlb=\count296
+\@aboverulesep=\dimen183
+\@belowrulesep=\dimen184
+\@thisruleclass=\count297
+\@lastruleclass=\count298
+\@thisrulewidth=\dimen185
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tools/tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+\TX@col@width=\dimen186
+\TX@old@table=\dimen187
+\TX@old@col=\dimen188
+\TX@target=\dimen189
+\TX@delta=\dimen190
+\TX@cols=\count299
+\TX@ftn=\toks36
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tcolorbox/tcolorbox.sty
+Package: tcolorbox 2024/10/22 version 6.4.1 text color boxes
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pgf/frontendlayer/tikz.sty (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pgf/basiclayer/pgf.sty (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pgf/utilities/pgfrcs.sty (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks37
+\pgfutil@tempdima=\dimen191
+\pgfutil@tempdimb=\dimen192
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box58
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/utilities/pgfrcs.code.tex (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
+))
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pgf/basiclayer/pgfcore.sty (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/graphics/graphics.sty
+Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/graphics/trig.sty
+Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 106.
+)
+\Gin@req@height=\dimen193
+\Gin@req@width=\dimen194
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pgf/systemlayer/pgfsys.sty (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks38
+\pgfkeys@temptoks=\toks39
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/utilities/pgfkeyslibraryfiltered.code.tex
+\pgfkeys@tmptoks=\toks40
+))
+\pgf@x=\dimen195
+\pgf@y=\dimen196
+\pgf@xa=\dimen197
+\pgf@ya=\dimen198
+\pgf@xb=\dimen199
+\pgf@yb=\dimen256
+\pgf@xc=\dimen257
+\pgf@yc=\dimen258
+\pgf@xd=\dimen259
+\pgf@yd=\dimen260
+\w@pgf@writea=\write3
+\r@pgf@reada=\read3
+\c@pgf@counta=\count300
+\c@pgf@countb=\count301
+\c@pgf@countc=\count302
+\c@pgf@countd=\count303
+\t@pgf@toka=\toks41
+\t@pgf@tokb=\toks42
+\t@pgf@tokc=\toks43
+\pgf@sys@id@count=\count304
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
+))) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfsyssoftpath@smallbuffer@items=\count305
+\pgfsyssoftpath@bigbuffer@items=\count306
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmath.code.tex (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathutil.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen261
+\pgfmath@count=\count307
+\pgfmath@box=\box59
+\pgfmath@toks=\toks44
+\pgfmath@stack@operand=\toks45
+\pgfmath@stack@operation=\toks46
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count308
+)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfint.code.tex) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen262
+\pgf@picmaxx=\dimen263
+\pgf@picminy=\dimen264
+\pgf@picmaxy=\dimen265
+\pgf@pathminx=\dimen266
+\pgf@pathmaxx=\dimen267
+\pgf@pathminy=\dimen268
+\pgf@pathmaxy=\dimen269
+\pgf@xx=\dimen270
+\pgf@xy=\dimen271
+\pgf@yx=\dimen272
+\pgf@yy=\dimen273
+\pgf@zx=\dimen274
+\pgf@zy=\dimen275
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen276
+\pgf@path@lasty=\dimen277
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen278
+\pgf@shorten@start@additional=\dimen279
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box60
+\pgf@hbox=\box61
+\pgf@layerbox@main=\box62
+\pgf@picture@serial@count=\count309
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen280
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen281
+\pgf@pt@y=\dimen282
+\pgf@pt@temp=\dimen283
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen284
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen285
+\pgf@sys@shading@range@num=\count310
+\pgf@shadingcount=\count311
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box63
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box64
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen286
+\pgf@nodesepend=\dimen287
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pgf/utilities/pgffor.sty (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pgf/utilities/pgfkeys.sty (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pgf/math/pgfmath.sty (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/math/pgfmath.code.tex)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen288
+\pgffor@skip=\dimen289
+\pgffor@stack=\toks47
+\pgffor@toks=\toks48
+)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count312
+\pgfplotmarksize=\dimen290
+)
+\tikz@lastx=\dimen291
+\tikz@lasty=\dimen292
+\tikz@lastxsaved=\dimen293
+\tikz@lastysaved=\dimen294
+\tikz@lastmovetox=\dimen295
+\tikz@lastmovetoy=\dimen296
+\tikzleveldistance=\dimen297
+\tikzsiblingdistance=\dimen298
+\tikz@figbox=\box65
+\tikz@figbox@bg=\box66
+\tikz@tempbox=\box67
+\tikz@tempbox@bg=\box68
+\tikztreelevel=\count313
+\tikznumberofchildren=\count314
+\tikznumberofcurrentchild=\count315
+\tikz@fig@count=\count316
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count317
+\pgfmatrixcurrentcolumn=\count318
+\pgf@matrix@numberofcolumns=\count319
+)
+\tikz@expandcount=\count320
+
+(/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tools/verbatim.sty
+Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks49
+\verbatim@line=\toks50
+\verbatim@in@stream=\read4
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/environ/environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/trimspaces/trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+))
+\tcb@titlebox=\box69
+\tcb@upperbox=\box70
+\tcb@lowerbox=\box71
+\tcb@phantombox=\box72
+\c@tcbbreakpart=\count321
+\c@tcblayer=\count322
+\c@tcolorbox@number=\count323
+\l__tcobox_tmpa_box=\box73
+\l__tcobox_tmpa_dim=\dimen299
+\tcb@temp=\box74
+\tcb@temp=\box75
+\tcb@temp=\box76
+\tcb@temp=\box77
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tcolorbox/tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.4.1'
+(/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tikzfill/tikzfill.image.sty
+Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tikzfill/tikzfill-common.sty
+Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
+File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
+\l__tikzfill_img_box=\box78
+)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.4.1'
+)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tcolorbox/tcbbreakable.code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '6.4.1'
+(/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/pdfcol/pdfcol.sty
+Package: pdfcol 2022-09-21 v1.7 Handle new color stacks for pdfTeX (HO)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+))
+Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
+\tcb@testbox=\box79
+\tcb@totalupperbox=\box80
+\tcb@totallowerbox=\box81
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tcolorbox/tcbtheorems.code.tex
+Library (tcolorbox): 'tcbtheorems.code.tex' version '6.4.1'
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen300
+\pgfarrowlength=\dimen301
+\pgfarrowwidth=\dimen302
+\pgfarrowlinewidth=\dimen303
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen304
+\pgfdecoratedremainingdistance=\dimen305
+\pgfdecoratedinputsegmentcompleteddistance=\dimen306
+\pgfdecoratedinputsegmentremainingdistance=\dimen307
+\pgf@decorate@distancetomove=\dimen308
+\pgf@decorate@repeatstate=\count324
+\pgfdecorationsegmentamplitude=\dimen309
+\pgfdecorationsegmentlength=\dimen310
+)
+\tikz@lib@dec@box=\box82
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/tools/multicol.sty
+Package: multicol 2024/09/14 v1.9i multicolumn formatting (FMi)
+\c@tracingmulticols=\count325
+\mult@box=\box83
+\multicol@leftmargin=\dimen311
+\c@unbalance=\count326
+\c@collectmore=\count327
+\doublecol@number=\count328
+\multicoltolerance=\count329
+\multicolpretolerance=\count330
+\full@width=\dimen312
+\page@free=\dimen313
+\premulticols=\dimen314
+\postmulticols=\dimen315
+\multicolsep=\skip65
+\multicolbaselineskip=\skip66
+\partial@page=\box84
+\last@line=\box85
+\mc@boxedresult=\box86
+\maxbalancingoverflow=\dimen316
+\mult@rightbox=\box87
+\mult@grightbox=\box88
+\mult@firstbox=\box89
+\mult@gfirstbox=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\@tempa=\box122
+\@tempa=\box123
+\@tempa=\box124
+\@tempa=\box125
+\@tempa=\box126
+\c@minrows=\count331
+\c@columnbadness=\count332
+\c@finalcolumnbadness=\count333
+\last@try=\dimen317
+\multicolovershoot=\dimen318
+\multicolundershoot=\dimen319
+\mult@nat@firstbox=\box127
+\colbreak@box=\box128
+\mc@col@check@num=\count334
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
+\f@nch@headwidth=\skip67
+\f@nch@offset@elh=\skip68
+\f@nch@offset@erh=\skip69
+\f@nch@offset@olh=\skip70
+\f@nch@offset@orh=\skip71
+\f@nch@offset@elf=\skip72
+\f@nch@offset@erf=\skip73
+\f@nch@offset@olf=\skip74
+\f@nch@offset@orf=\skip75
+\f@nch@height=\skip76
+\f@nch@footalignment=\skip77
+\f@nch@widthL=\skip78
+\f@nch@widthC=\skip79
+\f@nch@widthR=\skip80
+\@temptokenb=\toks51
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box129
+\beforetitleunit=\skip81
+\aftertitleunit=\skip82
+\ttl@plus=\dimen320
+\ttl@minus=\dimen321
+\ttl@toksa=\toks52
+\titlewidth=\dimen322
+\titlewidthlast=\dimen323
+\titlewidthfirst=\dimen324
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2025/02/06 v3.11 Customized lists
+\labelindent=\skip83
+\enit@outerparindent=\dimen325
+\enit@toks=\toks53
+\enit@inbox=\box130
+\enit@count@id=\count335
+\enitdp@description=\count336
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/hyperref/nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count337
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+)
+\@linkdim=\dimen326
+\Hy@linkcounter=\count338
+\Hy@pagecounter=\count339
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count340
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/hyperref/puenc.def
+File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4157.
+Package hyperref Info: Link nesting OFF on input line 4162.
+Package hyperref Info: Hyper index ON on input line 4165.
+Package hyperref Info: Plain pages OFF on input line 4172.
+Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4424.
+\c@Hy@tempcnt=\count341
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/url/url.sty
+\Urlmuskip=\muskip18
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4763.
+\XeTeXLinkMargin=\dimen327
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count342
+\Field@Width=\dimen328
+\Fld@charsize=\dimen329
+Package hyperref Info: Hyper figures OFF on input line 6042.
+Package hyperref Info: Link nesting OFF on input line 6047.
+Package hyperref Info: Hyper index ON on input line 6050.
+Package hyperref Info: backreferencing OFF on input line 6057.
+Package hyperref Info: Link coloring OFF on input line 6062.
+Package hyperref Info: Link coloring with OCG OFF on input line 6067.
+Package hyperref Info: PDF/A mode OFF on input line 6072.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count343
+\c@Item=\count344
+\c@Hfootnote=\count345
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2024-11-05 v7.01l Hyperref driver for pdfTeX
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count346
+\c@bookmark@seq@number=\count347
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip84
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/mdframed/mdframed.sty
+Package: mdframed 2013/07/01 1.9b: mdframed
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/l3packages/xparse/xparse.sty (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2025-01-18 L3 programming layer (loader) 
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count348
+\l__pdf_internal_box=\box131
+))
+Package: xparse 2024-08-16 L3 Experimental document command parser
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/zref/zref-abspage.sty
+Package: zref-abspage 2023-09-14 v2.35 Module abspage for zref (HO)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/zref/zref-base.sty
+Package: zref-base 2023-09-14 v2.35 Module base for zref (HO)
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+Package zref Info: New property list: main on input line 767.
+Package zref Info: New property: default on input line 768.
+Package zref Info: New property: page on input line 769.
+)
+\c@abspage=\count349
+Package zref Info: New property: abspage on input line 67.
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/needspace/needspace.sty
+Package: needspace 2010/09/12 v1.3d reserve vertical space
+)
+\mdf@templength=\skip85
+\c@mdf@globalstyle@cnt=\count350
+\mdf@skipabove@length=\skip86
+\mdf@skipbelow@length=\skip87
+\mdf@leftmargin@length=\skip88
+\mdf@rightmargin@length=\skip89
+\mdf@innerleftmargin@length=\skip90
+\mdf@innerrightmargin@length=\skip91
+\mdf@innertopmargin@length=\skip92
+\mdf@innerbottommargin@length=\skip93
+\mdf@splittopskip@length=\skip94
+\mdf@splitbottomskip@length=\skip95
+\mdf@outermargin@length=\skip96
+\mdf@innermargin@length=\skip97
+\mdf@linewidth@length=\skip98
+\mdf@innerlinewidth@length=\skip99
+\mdf@middlelinewidth@length=\skip100
+\mdf@outerlinewidth@length=\skip101
+\mdf@roundcorner@length=\skip102
+\mdf@footenotedistance@length=\skip103
+\mdf@userdefinedwidth@length=\skip104
+\mdf@needspace@length=\skip105
+\mdf@frametitleaboveskip@length=\skip106
+\mdf@frametitlebelowskip@length=\skip107
+\mdf@frametitlerulewidth@length=\skip108
+\mdf@frametitleleftmargin@length=\skip109
+\mdf@frametitlerightmargin@length=\skip110
+\mdf@shadowsize@length=\skip111
+\mdf@extratopheight@length=\skip112
+\mdf@subtitleabovelinewidth@length=\skip113
+\mdf@subtitlebelowlinewidth@length=\skip114
+\mdf@subtitleaboveskip@length=\skip115
+\mdf@subtitlebelowskip@length=\skip116
+\mdf@subtitleinneraboveskip@length=\skip117
+\mdf@subtitleinnerbelowskip@length=\skip118
+\mdf@subsubtitleabovelinewidth@length=\skip119
+\mdf@subsubtitlebelowlinewidth@length=\skip120
+\mdf@subsubtitleaboveskip@length=\skip121
+\mdf@subsubtitlebelowskip@length=\skip122
+\mdf@subsubtitleinneraboveskip@length=\skip123
+\mdf@subsubtitleinnerbelowskip@length=\skip124
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/mdframed/md-frame-0.mdf
+File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
+)
+\mdf@frametitlebox=\box132
+\mdf@footnotebox=\box133
+\mdf@splitbox@one=\box134
+\mdf@splitbox@two=\box135
+\mdf@splitbox@save=\box136
+\mdfsplitboxwidth=\skip125
+\mdfsplitboxtotalwidth=\skip126
+\mdfsplitboxheight=\skip127
+\mdfsplitboxdepth=\skip128
+\mdfsplitboxtotalheight=\skip129
+\mdfframetitleboxwidth=\skip130
+\mdfframetitleboxtotalwidth=\skip131
+\mdfframetitleboxheight=\skip132
+\mdfframetitleboxdepth=\skip133
+\mdfframetitleboxtotalheight=\skip134
+\mdffootnoteboxwidth=\skip135
+\mdffootnoteboxtotalwidth=\skip136
+\mdffootnoteboxheight=\skip137
+\mdffootnoteboxdepth=\skip138
+\mdffootnoteboxtotalheight=\skip139
+\mdftotallinewidth=\skip140
+\mdfboundingboxwidth=\skip141
+\mdfboundingboxtotalwidth=\skip142
+\mdfboundingboxheight=\skip143
+\mdfboundingboxdepth=\skip144
+\mdfboundingboxtotalheight=\skip145
+\mdf@freevspace@length=\skip146
+\mdf@horizontalwidthofbox@length=\skip147
+\mdf@verticalmarginwhole@length=\skip148
+\mdf@horizontalspaceofbox=\skip149
+\mdfsubtitleheight=\skip150
+\mdfsubsubtitleheight=\skip151
+\c@mdfcountframes=\count351
+
+****** mdframed patching \endmdf@trivlist
+
+****** -- success******
+
+\mdf@envdepth=\count352
+\c@mdf@env@i=\count353
+\c@mdf@env@ii=\count354
+\c@mdf@zref@counter=\count355
+Package zref Info: New property: mdf@pagevalue on input line 895.
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/esint/esint.sty
+Package: esint 
+\symlargesymbolsA=\mathgroup6
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 184.
+
+
+LaTeX Warning: Unused global option(s):
+    [10.5pt].
+
+(./electromagnetique.aux)
+\openout1 = `electromagnetique.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 187.
+LaTeX Font Info:    ... okay on input line 187.
+LaTeX Info: Redefining \microtypecontext on input line 187.
+Package microtype Info: Applying patch `item' on input line 187.
+Package microtype Info: Applying patch `toc' on input line 187.
+Package microtype Info: Applying patch `eqnum' on input line 187.
+Package microtype Info: Applying patch `footnote' on input line 187.
+Package microtype Info: Applying patch `verbatim' on input line 187.
+LaTeX Info: Redefining \microtypesetup on input line 187.
+Package microtype Info: Generating PDF output.
+Package microtype Info: No character protrusion.
+Package microtype Info: No font expansion.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(51.21504pt, 495.07779pt, 51.21504pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=495.07779pt
+* \textheight=731.23584pt
+* \oddsidemargin=-21.05495pt
+* \evensidemargin=-21.05495pt
+* \topmargin=-55.36449pt
+* \headheight=15.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=57.0pt
+* \marginparsep=11.0pt
+* \columnsep=12.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count356
+\scratchdimen=\dimen330
+\scratchbox=\box137
+\nofMPsegments=\count357
+\nofMParguments=\count358
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count359
+\MPscratchDim=\dimen331
+\MPnumerator=\count360
+\makeMPintoPDFobject=\count361
+\everyMPtoPDFconversion=\toks55
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package hyperref Info: Link coloring ON on input line 187.
+ (./electromagnetique.out) (./electromagnetique.out)
+\@outlinefile=\write4
+\openout4 = `electromagnetique.out'.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 200.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 200.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+esint on input line 200.
+ (/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/tex/latex/esint/uesint.fd
+File: uesint.fd 
+)
+Overfull \hbox (43.1997pt too wide) detected at line 289
+\OT1/cmr/m/n/10 = [] [] + [] [] + [] []
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 19.69997pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.69997pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.69997pt}.
+
+[1{/nix/store/az9lw9l6l39yi44lj8wr6v307krf12i4-texlive-2024-env/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
+
+{/nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 19.69997pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.69997pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.69997pt}.
+
+[2]
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 19.69997pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.69997pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.69997pt}.
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 546--546
+[]|\T1/cmr/bx/n/9 Green-
+ []
+
+
+Overfull \hbox (2.36491pt too wide) in paragraph at lines 515--547
+  [] 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 19.69997pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.69997pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.69997pt}.
+
+[4]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 620.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 620.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 630.
+
+Missing character: There is no é in font cmr5!
+
+LaTeX Warning: Command \' invalid in math mode on input line 646.
+
+Missing character: There is no é in font cmr7!
+
+LaTeX Warning: Command \' invalid in math mode on input line 649.
+
+Missing character: There is no é in font cmr7!
+
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 19.69997pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.69997pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.69997pt}.
+
+[5]
+
+LaTeX Warning: Command \' invalid in math mode on input line 697.
+
+Missing character: There is no é in font cmr7!
+
+LaTeX Warning: Command \' invalid in math mode on input line 697.
+
+Missing character: There is no é in font cmr7!
+
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 19.69997pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.69997pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.69997pt}.
+
+[6]
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 19.69997pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.69997pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.69997pt}.
+
+[7]
+Underfull \hbox (badness 6016) in paragraph at lines 882--882
+[]|\T1/cmr/bx/n/9 Fil cy-lin-drique plein
+ []
+
+
+Underfull \hbox (badness 4779) in paragraph at lines 882--882
+[]|\T1/cmr/bx/n/9 Ampère (ma-gné-to-sta-
+ []
+
+
+Overfull \hbox (2.36609pt too wide) in paragraph at lines 846--883
+  [] 
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 19.69997pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.69997pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.69997pt}.
+
+[8]
+
+LaTeX Warning: Command \' invalid in math mode on input line 902.
+
+Missing character: There is no é in font cmr7!
+
+
+
+Package fancyhdr Warning: \headheight is too small (15.0pt): 
+(fancyhdr)                Make it at least 19.69997pt, for example:
+(fancyhdr)                \setlength{\headheight}{19.69997pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-4.69997pt}.
+
+[9] (./electromagnetique.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+Package rerunfilecheck Info: File `electromagnetique.out' has not changed.
+(rerunfilecheck)             Checksum: 7F9AFB23CF6F66EC64BDC0272DFF431B;3062.
+ ) 
+Here is how much of TeX's memory you used:
+ 31817 strings out of 473203
+ 644989 string characters out of 5692202
+ 1156393 words of memory out of 5000000
+ 54514 multiletter control sequences out of 15000+600000
+ 578070 words of font info for 90 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 116i,17n,121p,1063b,1374s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr5.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr6.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr7.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmr9.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/esint-type1/esint10.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/symbols/msam10.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/cm-super/sfbi0900.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/cm-super/sfbx0900.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/cm-super/sfbx1000.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/cm-super/sfbx1200.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/cm-super/sfbx1728.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/cm-super/sfrm0900.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/cm-super/sfrm1000.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/cm-super/sfrm1440.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/cm-super/sfti0900.pfb></nix/store/jnzbk1g55r9hbjhr7cllb02si7vikqw9-texlive-2024-env-texmfdist/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on electromagnetique.pdf (9 pages, 457491 bytes).
+PDF statistics:
+ 248 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+

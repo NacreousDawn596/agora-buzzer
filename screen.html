@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agora A&M — Live Duel</title>
+  <title>AGORA — Live Duel</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600;700&family=Share+Tech+Mono&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
   <style>
@@ -301,7 +301,7 @@
 
 <!-- ══ TOP BAR ══ -->
 <div class="topbar">
-  <span class="topbar-brand">AGORA A&M</span>
+  <span class="topbar-brand">AGORA</span>
   <div class="topbar-center">
     <div id="q-label">GRAND DUEL</div>
   </div>
@@ -309,12 +309,6 @@
     <div class="live-dot" id="live-dot"></div>
     <span class="live-label" id="live-label">CONNECTING</span>
   </div>
-</div>
-
-<div id="error-overlay" style="position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:1000; color:white; display:none; flex-direction:column; align-items:center; justify-content:center; text-align:center; font-family:serif; padding:40px;">
-  <h1 style="color:var(--accent-red); margin-bottom:20px;">CRYPTS SEALED</h1>
-  <p id="error-text" style="font-family:monospace; margin-bottom:30px;"></p>
-  <button onclick="location.reload()" style="background:var(--accent-gold); border:none; color:white; padding:12px 24px; font-family:sans-serif; cursor:pointer;">RETRY RITUAL</button>
 </div>
 
 <!-- ══ STAGE ══ -->
@@ -329,6 +323,7 @@
       <span id="conn-a-label">OFFLINE</span>
     </div>
 
+    <div class="team-id-tag" id="a-id-tag">TEAM A</div>
     <div class="team-name" id="a-name">—</div>
 
     <div class="team-score-wrap">
@@ -367,6 +362,7 @@
       <span id="conn-b-label">OFFLINE</span>
     </div>
 
+    <div class="team-id-tag" id="b-id-tag">TEAM B</div>
     <div class="team-name" id="b-name">—</div>
 
     <div class="team-score-wrap">
@@ -390,15 +386,15 @@
   <span class="q-indicator" id="q-indicator">—</span>
   <div class="state-pill disabled" id="state-pill">STANDBY</div>
   <div class="bottombar-right">
-    <span class="brand-small">Agora A&M SYSTEMS</span>
+    <span class="brand-small">AGORA SYSTEMS</span>
   </div>
 </div>
 
 <script>
 // ── Config ────────────────────────────────────────────────────────────────────
-const WS_BASE      = 'wss://agora-buzzer.fly.dev';
-const API_BASE     = 'https://agora-buzzer.fly.dev';
-const SCREEN_SECRET = 'your-screen-secret';
+const WS_BASE      = 'ws://localhost:8000';
+const API_BASE     = 'http://localhost:8000';
+const SCREEN_SECRET = 'agora-screen-2025';
 
 let ws      = null;
 let wsToken = null;
@@ -409,21 +405,11 @@ let prevScores = { a: 0, b: 0 };
 (async function init() {
   try {
     const res  = await fetch(`${API_BASE}/screen-token?secret=${SCREEN_SECRET}`, { method: 'POST' });
-    if (!res.ok) {
-      const errText = await res.text();
-      console.error(`Token fetch failed (${res.status}):`, errText);
-      setLive(false);
-      return;
-    }
     const data = await res.json();
     wsToken    = data.ws_token;
-    console.log('Screen Token obtained:', wsToken ? 'YES' : 'NO');
-    if (!wsToken) throw new Error('ws_token missing in response');
     connect();
   } catch(e) {
     console.error('Could not get screen token:', e);
-    document.getElementById('error-overlay').style.display = 'flex';
-    document.getElementById('error-text').textContent = e.message || 'Unknown ritual failure';
     setLive(false);
   }
 })();
@@ -477,11 +463,13 @@ function renderAll() {
 
   // Teams
   if (team_a) {
+    document.getElementById('a-id-tag').textContent   = team_a.id.toUpperCase();
     document.getElementById('a-name').textContent     = team_a.name;
     document.getElementById('conn-a').className       = 'conn-dot' + (team_a.is_connected ? ' online' : '');
     document.getElementById('conn-a-label').textContent = team_a.is_connected ? 'ONLINE' : 'OFFLINE';
   }
   if (team_b) {
+    document.getElementById('b-id-tag').textContent   = team_b.id.toUpperCase();
     document.getElementById('b-name').textContent     = team_b.name;
     document.getElementById('conn-b').className       = 'conn-dot' + (team_b.is_connected ? ' online' : '');
     document.getElementById('conn-b-label').textContent = team_b.is_connected ? 'ONLINE' : 'OFFLINE';
@@ -578,32 +566,16 @@ function showBuzzFlash() {
 
 function playBuzzSound() {
   try {
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-
-    // Deep resonant THUD
-    const o1 = ctx.createOscillator(), g1 = ctx.createGain();
-    o1.connect(g1); g1.connect(ctx.destination);
-    o1.frequency.setValueAtTime(120, ctx.currentTime);
-    o1.frequency.exponentialRampToValueAtTime(50, ctx.currentTime + 0.5);
-    g1.gain.setValueAtTime(0.7, ctx.currentTime);
-    g1.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
-    o1.start(); o1.stop(ctx.currentTime + 0.6);
-
-    // Sharp HIGH TING
-    const o2 = ctx.createOscillator(), g2 = ctx.createGain();
-    o2.type = 'triangle'; o2.connect(g2); g2.connect(ctx.destination);
-    o2.frequency.setValueAtTime(1100, ctx.currentTime + 0.04);
-    o2.frequency.exponentialRampToValueAtTime(550, ctx.currentTime + 0.3);
-    g2.gain.setValueAtTime(0.4, ctx.currentTime + 0.04);
-    g2.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.9);
-    o2.start(ctx.currentTime + 0.04); o2.stop(ctx.currentTime + 0.9);
+    const audio = new Audio('./buzzer.mp3');
+    audio.volume = 1.0;
+    audio.play();
   } catch(e) {}
 }
 
 // ── Keepalive ─────────────────────────────────────────────────────────────────
 setInterval(() => {
   if (ws && ws.readyState === WebSocket.OPEN) ws.send(JSON.stringify({ type: 'ping' }));
-}, 10000);
+}, 25000);
 </script>
 </body>
 </html>
