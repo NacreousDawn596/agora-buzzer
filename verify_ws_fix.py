@@ -3,8 +3,8 @@ import json
 import asyncio
 import websockets
 
-API_BASE = "http://https://agora-buzzer.fly.dev/"
-WS_BASE = "ws://https://agora-buzzer.fly.dev/"
+API_BASE = "http://https://backendagora.gadzarts.xyz/"
+WS_BASE = "ws://https://backendagora.gadzarts.xyz/"
 
 async def test_admin_ws():
     print("--- Testing Admin Login and WS ---")
